@@ -2,7 +2,7 @@ import { addOp } from "@/lib/ops";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { toPng } from "html-to-image";
 import { JaibLoader, JaibReceiptLogo } from "@/components/JaibMark";
-import okTone from "@/assets/jaib/ok.mp3.asset.json";
+import okTone from "@/assets/jaib/tone2.mp3.asset.json";
 import { Copy, Download, Eye, EyeOff, Heart, Share2, X } from "lucide-react";
 import top from "@/assets/jaib/sub_top.webp";
 import ct from "@/assets/jaib/sub_ct.webp";
