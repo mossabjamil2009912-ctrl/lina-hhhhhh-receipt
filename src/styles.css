@@ -27,7 +27,6 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
   --color-background: var(--background);
-  --color-login-field: var(--login-field);
   --color-login-tab: var(--login-tab);
   --color-login-sheet: var(--login-sheet);
   --color-foreground: var(--foreground);
@@ -71,7 +70,6 @@
 :root {
   --radius: 0.625rem;
   --background: oklch(0.965 0.005 295);
-  --login-field: oklch(0.94 0.004 295);
   --login-tab: oklch(0.86 0.004 295);
   --login-sheet: oklch(0.95 0.004 295);
   --foreground: oklch(0.27 0.003 286);

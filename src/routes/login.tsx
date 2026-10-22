@@ -82,7 +82,7 @@ function Login() {
   return (
     <div className="flex h-[100dvh] w-full justify-center overflow-hidden bg-background">
       <form onSubmit={submit} style={{ zoom, width: W, height: H }} className="relative shrink-0 overflow-hidden bg-background [&_img]:mix-blend-multiply">
-        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[180px] opacity-[0.05] [background-image:radial-gradient(currentColor_1.2px,transparent_1.3px)] [background-size:22px_22px] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[200px] opacity-[0.04] [mask-image:linear-gradient(to_bottom,black,transparent)]" style={{ backgroundImage: `url(${mlogo})`, backgroundSize: "44px auto", backgroundRepeat: "repeat" }} />
         <img src={logo} alt="جيب" style={box(310, 100, 580, 220)} />
         <h1 style={{ position: "absolute", right: 35 / S, top: 300 / S }} className="text-[19px] font-extrabold leading-none">مرحبًا بعودتك</h1>
         <p style={{ position: "absolute", right: 35 / S, top: 366 / S }} className="text-[15.5px] leading-none text-muted-foreground">قم بتسجيل الدخول</p>
@@ -97,13 +97,13 @@ function Login() {
         </button>
 
         <label style={{ position: "absolute", right: 35 / S, top: 625 / S }} className="text-[12px] leading-none text-muted-foreground">رقم الجوال</label>
-        <div style={box(30, 672, 857, 775)} className="rounded-[6px] border border-foreground/15 bg-login-field">
+        <div style={box(30, 672, 857, 775)} className="rounded-[6px] border border-foreground/15 bg-transparent">
           <input value={phone} onChange={(e) => setPhone(e.target.value)} inputMode="numeric" dir="ltr" className="h-full w-full bg-transparent pl-[48px] pr-[10px] text-right text-[14px] outline-none" />
           <img src={ph} alt="" style={{ position: "absolute", left: 25 / S, top: 21 / S, width: 57 / S, height: 59 / S }} />
         </div>
 
         <label style={{ position: "absolute", right: 35 / S, top: 818 / S }} className="text-[12px] leading-none text-muted-foreground">كلمة المرور</label>
-        <div style={box(30, 865, 857, 968)} className={`rounded-[6px] border bg-login-field ${err ? "border-primary" : "border-foreground/15"}`}>
+        <div style={box(30, 865, 857, 968)} className={`rounded-[6px] border bg-transparent ${err ? "border-primary" : "border-foreground/15"}`}>
           {bio ? (
             <>
               <div className="absolute inset-0 flex items-center justify-center"><div className="scale-[0.7] drop-shadow-[0_1px_3px_rgba(0,0,0,0.25)]"><JaibLoader /></div></div>
@@ -130,7 +130,7 @@ function Login() {
           لا تمتلك حساب؟ <button type="button" className="font-bold text-primary">إنشاء حساب</button>
         </p>
 
-        <button type="button" onClick={finger} aria-label="الدخول بالبصمة" style={{ ...box(360, 1222, 527, 1390), zIndex: 30 }} className="rounded-full bg-login-sheet transition active:scale-90">
+        <button type="button" onClick={finger} aria-label="الدخول بالبصمة" style={{ ...box(360, 1222, 527, 1390), zIndex: 30 }} className="rounded-full bg-card transition active:scale-90">
           <img src={fpBig} alt="" className="h-full w-full" />
         </button>
 
@@ -141,7 +141,7 @@ function Login() {
           </button>
         ))}
 
-        {sheet && <div onClick={() => setSheet(false)} className="fixed inset-0 z-10 bg-foreground/25" />}
+        {sheet && <div onClick={() => setSheet(false)} className="fixed inset-0 z-10 bg-foreground/10" />}
         {sheet && (
           <div style={{ ...box(135, 755, 752, 1175), zIndex: 20 }} className="rounded-[18px] bg-login-sheet shadow-[0_6px_30px_rgba(0,0,0,0.15)]">
             <img src={mlogo} alt="جيب" style={{ position: "absolute", left: (372 - 135) / S, top: 40 / S, width: 140 / S, height: 63 / S }} />
