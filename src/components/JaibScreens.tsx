@@ -18,6 +18,7 @@ import farq from "@/assets/jaib/farq.webp";
 import avatar from "@/assets/jaib/avatar.webp";
 import qr from "@/assets/jaib/qr.webp";
 import { useOwner, firstName } from "@/lib/owner";
+import { useOfflineReady } from "@/lib/pwa";
 function OwnerFirst() { return <>{firstName(useOwner().name)}</>; }
 function OwnerName() { return <>{useOwner().name}</>; }
 function OwnerPhone() { return <>{useOwner().phone}</>; }
@@ -152,6 +153,7 @@ function ProfileMore({ l }: { l: string }) {
 export function Profile() {
   const [open, setOpen] = useState<string | null>(null);
   const [updMsg, setUpdMsg] = useState<string | null>(null);
+  const offline = useOfflineReady();
   const runUpdate = async () => {
     setUpdMsg("جارٍ التحقق من التحديثات...");
     const { checkForUpdate } = await import("@/lib/pwa");
@@ -187,6 +189,7 @@ export function Profile() {
               {it.more && <ChevronDown className={`h-5 w-5 text-muted-foreground transition-transform ${open === it.l ? "rotate-180" : ""}`} />}
             </button>
             {i === 0 && updMsg && <div className="px-[12px] pb-[10px] text-[13px] text-muted-foreground">{updMsg}</div>}
+            {i === 0 && offline !== null && <div className="px-[12px] pb-[10px] text-[12px] text-muted-foreground">{offline ? "جاهز للعمل بدون إنترنت" : "جارٍ التجهيز للعمل بدون إنترنت..."}</div>}
             {it.more && open === it.l && <ProfileMore l={it.l} />}
           </div>
         ))}

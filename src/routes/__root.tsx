@@ -12,7 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { setupPwa } from "../lib/pwa";
+import { setupPwa, keepDataPersistent } from "../lib/pwa";
 
 // After a new deploy, old chunk hashes 404 → reload once to fetch the fresh build.
 if (typeof window !== "undefined") {
@@ -160,6 +160,7 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   useEffect(() => {
     void setupPwa();
+    void keepDataPersistent();
   }, []);
   useEffect(() => {
     // Warm the cache so every screen's icons appear instantly.

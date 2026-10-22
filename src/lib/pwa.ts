@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 // The only place that registers the offline service worker.
 export async function setupPwa() {
   if (typeof window === "undefined" || !("serviceWorker" in navigator)) return;
@@ -59,4 +60,32 @@ export async function checkForUpdate(): Promise<UpdateResult> {
   navigator.serviceWorker.addEventListener("controllerchange", () => location.reload(), { once: true });
   waiting.postMessage({ type: "SKIP_WAITING" });
   return "updating";
+}
+
+// Ask Android not to clear the app's saved data.
+export async function keepDataPersistent() {
+  try { if (navigator.storage?.persist && !(await navigator.storage.persisted())) await navigator.storage.persist(); } catch { /* unsupported */ }
+}
+
+/** True once the offline files (app shell) are saved on the phone. */
+export async function isOfflineReady(): Promise<boolean> {
+  if (typeof window === "undefined" || !("caches" in window) || !("serviceWorker" in navigator)) return false;
+  if (!navigator.serviceWorker.controller && !(await navigator.serviceWorker.getRegistration("/"))?.active) return false;
+  const keys = await caches.keys();
+  for (const k of keys.filter((n) => n.includes("precache"))) {
+    const c = await caches.open(k);
+    if ((await c.keys()).some((r) => new URL(r.url).pathname === "/")) return true;
+  }
+  return false;
+}
+
+export function useOfflineReady() {
+  const [ready, set] = useState<boolean | null>(null);
+  useEffect(() => {
+    let stop = false;
+    const tick = async () => { const r = await isOfflineReady(); if (!stop) { set(r); if (!r) setTimeout(tick, 2000); } };
+    void tick();
+    return () => { stop = true; };
+  }, []);
+  return ready;
 }
