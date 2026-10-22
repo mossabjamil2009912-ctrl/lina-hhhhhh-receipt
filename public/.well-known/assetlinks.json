@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "app.lovable.first_look_recreated.twa",
+        "sha256_cert_fingerprints": ["59:16:1B:3B:90:C4:97:17:34:CD:DA:A8:F4:60:78:15:7F:D7:F6:D6:01:DF:02:BD:C4:70:A9:69:D0:70:77:A9"]
+      }
+    }]
