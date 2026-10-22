@@ -170,11 +170,12 @@ export function Profile() {
       <div className="mt-[18px] flex flex-col gap-[8px]">
         {profileItems.map((it, i) => (
           <div key={it.l} className="rounded-[12px] bg-card">
-            <button onClick={() => it.more && setOpen(open === it.l ? null : it.l)} className="flex h-[50px] w-full items-center gap-[14px] px-[12px] text-start active:scale-[0.98]">
+            <button onClick={() => { if (i === 0) runUpdate(); else if (it.more) setOpen(open === it.l ? null : it.l); }} className="flex h-[50px] w-full items-center gap-[14px] px-[12px] text-start active:scale-[0.98]">
               <img src={pick(pfImgs, `pf${i}`)} alt="" className="h-[25px] w-[24px]" />
               <span className="flex-1 text-[14px] font-bold">{it.l}</span>
               {it.more && <ChevronDown className={`h-5 w-5 text-muted-foreground transition-transform ${open === it.l ? "rotate-180" : ""}`} />}
             </button>
+            {i === 0 && updMsg && <div className="px-[12px] pb-[10px] text-[13px] text-muted-foreground">{updMsg}</div>}
             {it.more && open === it.l && <ProfileMore l={it.l} />}
           </div>
         ))}
