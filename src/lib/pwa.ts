@@ -18,20 +18,34 @@ export async function setupPwa() {
     await Promise.all(regs.filter((r) => r.active?.scriptURL.endsWith("/sw.js")).map((r) => r.unregister()));
     return;
   }
-  // Reload once when a new version takes over, so the newest screens show at once.
-  const hadController = !!navigator.serviceWorker.controller;
-  navigator.serviceWorker.addEventListener("controllerchange", () => {
-    if (!hadController) return;
-    const k = "jaib-sw-reloaded";
-    const last = Number(sessionStorage.getItem(k) || 0);
-    if (Date.now() - last < 15000) return;
-    sessionStorage.setItem(k, String(Date.now()));
-    location.reload();
-  });
+  // Updates are manual only (see checkForUpdate); no automatic update checks.
   try {
-    const reg = await navigator.serviceWorker.register("/sw.js", { scope: "/" });
-    const check = () => { if (navigator.onLine) reg.update().catch(() => {}); };
-    check();
-    document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") check(); });
+    await navigator.serviceWorker.register("/sw.js", { scope: "/" });
   } catch { /* offline or unsupported */ }
+}
+
+export type UpdateResult = "offline" | "latest" | "updating" | "unsupported";
+
+// Called only from «تحديث بيانات التطبيق».
+export async function checkForUpdate(): Promise<UpdateResult> {
+  if (typeof window === "undefined" || !("serviceWorker" in navigator)) return "unsupported";
+  if (!navigator.onLine) return "offline";
+  const reg = await navigator.serviceWorker.getRegistration("/");
+  if (!reg) return "unsupported";
+  try { await reg.update(); } catch { return "offline"; }
+  let waiting = reg.waiting;
+  if (!waiting && reg.installing) {
+    const w = reg.installing;
+    await new Promise<void>((res) => {
+      const t = setTimeout(res, 30000);
+      w.addEventListener("statechange", () => {
+        if (w.state === "installed" || w.state === "redundant") { clearTimeout(t); res(); }
+      });
+    });
+    waiting = reg.waiting;
+  }
+  if (!waiting) return "latest";
+  navigator.serviceWorker.addEventListener("controllerchange", () => location.reload(), { once: true });
+  waiting.postMessage({ type: "SKIP_WAITING" });
+  return "updating";
 }

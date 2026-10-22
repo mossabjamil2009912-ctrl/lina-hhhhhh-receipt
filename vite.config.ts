@@ -19,7 +19,7 @@ export default defineConfig({
     plugins: [
       VitePWA({
         strategies: "generateSW",
-        registerType: "autoUpdate",
+        registerType: "prompt",
         injectRegister: null,
         manifest: false,
         filename: "sw.js",
@@ -31,8 +31,9 @@ export default defineConfig({
           maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
           navigateFallback: null,
           cleanupOutdatedCaches: true,
-          clientsClaim: true,
-          skipWaiting: true,
+          // Updates apply only when the user taps «تحديث بيانات التطبيق».
+          clientsClaim: false,
+          skipWaiting: false,
           // App shell HTML for offline boot of every screen.
           additionalManifestEntries: [
             { url: "/", revision: rev },
