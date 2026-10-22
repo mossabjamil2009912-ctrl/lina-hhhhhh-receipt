@@ -32,16 +32,27 @@ export async function checkForUpdate(): Promise<UpdateResult> {
   if (!navigator.onLine) return "offline";
   const reg = await navigator.serviceWorker.getRegistration("/");
   if (!reg) return "unsupported";
-  try { await reg.update(); } catch { return "offline"; }
+  // Listen before calling update(): its promise can resolve before `installing` is set.
+  const found = new Promise<ServiceWorker | null>((res) => {
+    if (reg.installing) return res(reg.installing);
+    const t = setTimeout(() => res(reg.installing), 8000);
+    reg.addEventListener("updatefound", () => { clearTimeout(t); res(reg.installing); }, { once: true });
+  });
+  if (!reg.waiting) {
+    try { await reg.update(); } catch { return "offline"; }
+  }
   let waiting = reg.waiting;
-  if (!waiting && reg.installing) {
-    const w = reg.installing;
-    await new Promise<void>((res) => {
-      const t = setTimeout(res, 30000);
-      w.addEventListener("statechange", () => {
-        if (w.state === "installed" || w.state === "redundant") { clearTimeout(t); res(); }
+  if (!waiting) {
+    const w = await found;
+    if (w) {
+      await new Promise<void>((res) => {
+        if (w.state === "installed" || w.state === "redundant") return res();
+        const t = setTimeout(res, 60000);
+        w.addEventListener("statechange", () => {
+          if (w.state === "installed" || w.state === "redundant") { clearTimeout(t); res(); }
+        });
       });
-    });
+    }
     waiting = reg.waiting;
   }
   if (!waiting) return "latest";
