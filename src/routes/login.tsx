@@ -82,7 +82,7 @@ function Login() {
   return (
     <div className="flex h-[100dvh] w-full justify-center overflow-hidden bg-background">
       <form onSubmit={submit} style={{ zoom, width: W, height: H }} className="relative shrink-0 overflow-hidden bg-background [&_img]:mix-blend-multiply">
-        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[200px] opacity-[0.06] [mask-image:linear-gradient(to_bottom,black,transparent)]" style={{ backgroundImage: `url(${mlogo})`, backgroundSize: "34px auto", backgroundRepeat: "repeat" }} />
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[200px] opacity-[0.04] [mask-image:linear-gradient(to_bottom,black,transparent)]" style={{ backgroundImage: `url(${mlogo})`, backgroundSize: "44px auto", backgroundRepeat: "repeat" }} />
         <img src={logo} alt="جيب" style={box(310, 100, 580, 220)} />
         <h1 style={{ position: "absolute", right: 35 / S, top: 300 / S }} className="text-[19px] font-extrabold leading-none">مرحبًا بعودتك</h1>
         <p style={{ position: "absolute", right: 35 / S, top: 366 / S }} className="text-[15.5px] leading-none text-muted-foreground">قم بتسجيل الدخول</p>
@@ -130,7 +130,7 @@ function Login() {
           لا تمتلك حساب؟ <button type="button" className="font-bold text-primary">إنشاء حساب</button>
         </p>
 
-        <button type="button" onClick={finger} aria-label="الدخول بالبصمة" style={{ ...box(360, 1222, 527, 1390), zIndex: 30 }} className="rounded-full bg-login-sheet transition active:scale-90">
+        <button type="button" onClick={finger} aria-label="الدخول بالبصمة" style={{ ...box(360, 1222, 527, 1390), zIndex: 30 }} className="rounded-full bg-card transition active:scale-90">
           <img src={fpBig} alt="" className="h-full w-full" />
         </button>
 
