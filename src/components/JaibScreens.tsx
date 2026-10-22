@@ -151,6 +151,17 @@ function ProfileMore({ l }: { l: string }) {
 
 export function Profile() {
   const [open, setOpen] = useState<string | null>(null);
+  const [updMsg, setUpdMsg] = useState<string | null>(null);
+  const runUpdate = async () => {
+    setUpdMsg("جارٍ التحقق من التحديثات...");
+    const { checkForUpdate } = await import("@/lib/pwa");
+    const r = await checkForUpdate();
+    setUpdMsg(
+      r === "offline" ? "لا يوجد اتصال بالإنترنت"
+      : r === "updating" ? "جارٍ تحديث التطبيق..."
+      : "التطبيق محدث",
+    );
+  };
   return (
     <div className="px-[12px] pb-[110px] pt-[78px]">
       <div className="relative rounded-[14px] bg-foreground/10 px-[16px] pb-[16px] pt-[82px]">
