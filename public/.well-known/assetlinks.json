@@ -2,7 +2,7 @@
       "relation": ["delegate_permission/common.handle_all_urls"],
       "target": {
         "namespace": "android_app",
-        "package_name": "app.lovable.whole_project_welcomhe.twa",
-        "sha256_cert_fingerprints": ["4F:58:5F:48:72:16:81:3A:4A:D2:46:0F:B2:F5:9C:0B:6E:FC:B2:BA:C7:54:82:96:8F:6F:E2:53:D6:65:DE:7C"]
+        "package_name": "app.lovable.whole_project_welcomheg.twa",
+        "sha256_cert_fingerprints": ["62:9D:B7:1D:D5:B1:D2:A1:C5:4A:AA:4B:35:91:D0:BD:8A:7A:7A:46:E7:4B:D4:A9:93:EA:C4:67:02:40:9A:16"]
       }
     }]
