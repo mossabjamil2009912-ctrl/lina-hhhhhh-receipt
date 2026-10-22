@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Offline Android app (PWA for PWABuilder): service worker comes only from vite-plugin-pwa generateSW in vite.config.ts with outDir/globDirectory `dist/client`, registered only from `src/lib/pwa.ts`. Why: the client build lives in dist/client; anywhere else the worker is not served.
+- All app data and the login check stay on the device (localStorage + hashed password in `src/lib/gate.ts`), with no server calls. Why: the app must work fully offline.
