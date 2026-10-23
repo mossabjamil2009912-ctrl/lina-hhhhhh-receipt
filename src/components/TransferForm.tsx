@@ -132,8 +132,8 @@ export function TransferForm() {
   const sq = "flex h-[59px] w-[59px] shrink-0 items-center justify-center rounded-[12px] border border-border bg-card active:scale-90";
 
   return (
-    <div className="-mt-[12px] min-h-[calc(100dvh-93px)] rounded-t-[28px] bg-card px-[16px] pt-[32px]">
-      <div className="mb-[24px] flex justify-center">
+    <div className="-mt-[12px] min-h-[calc(100dvh-93px)] rounded-t-[28px] bg-card px-[16px] pt-[24px]">
+      <div className="mb-[18px] flex justify-center">
         <img src={top} alt="" className="h-[50px] w-[67px] rounded-[10px] bg-card shadow-md" />
       </div>
 
@@ -154,7 +154,7 @@ export function TransferForm() {
           )}
         </div>
         <button aria-label="إظهار الرصيد" onClick={() => setShow(!show)} className={sq}>
-          {show ? <Eye className="h-6 w-6 text-primary" strokeWidth={2.5} /> : <EyeOff className="h-6 w-6 text-primary" strokeWidth={2.5} />}
+          {show ? <Eye className="h-6 w-6 text-primary" strokeWidth={2.5} /> : <EyeOff className="h-6 w-6 fill-primary text-primary" strokeWidth={2.5} />}
         </button>
       </div>
 
@@ -179,10 +179,10 @@ export function TransferForm() {
           <svg viewBox="0 0 24 24" className="h-[26px] w-[26px]" fill="none" strokeWidth="2"><path d="M3 7V4h3M18 4h3v3M21 17v3h-3M6 20H3v-3" className="stroke-foreground" /><path d="M6 10h12M6 12h12M6 14h12" className="stroke-primary" /></svg>
         </button>
       </div>
-      <p className="mt-[12px] px-[4px] text-[13px]">يمكنك استخدام الرقم البديل أو رقم الموبايل للتحويل إلى مشترك</p>
+      <p className="mt-[8px] px-[4px] text-[13px]">يمكنك استخدام الرقم البديل أو رقم الموبايل للتحويل إلى مشترك</p>
 
       <div className="mt-[14px]">
-        <Field label="المبلغ" value={!!amount || focus === "amount"} focus={focus === "amount"}>
+        <Field label="المبلغ" value={!!amount || focus === "amount"} focus={focus === "amount" || step === "review" || step === "pin"}>
           <input value={amount} onFocus={() => setFocus("amount")} onBlur={() => setFocus("")} onChange={(e) => setAmount(e.target.value.replace(/[^\d.]/g, ""))} inputMode="decimal" placeholder={focus === "amount" ? "" : "المبلغ"} className={input} />
         </Field>
         {n > 0 && <p className="mt-[9px] px-[4px] text-[15px]">{toWords(n)} {curName[cur]}</p>}
@@ -200,11 +200,11 @@ export function TransferForm() {
           <div className="px-[12px] pb-[24px] pt-[55px]">
             <h2 className="text-center text-[19px] font-extrabold leading-[24px]">بيانات الحركة</h2>
             <div className="mt-[11px] flex h-[60px] items-center justify-center gap-[34px] rounded-[12px] bg-foreground/15">
-              <span className="text-[16px]">{curName[cur]}</span>
               <span className="text-[22px] font-extrabold">{amount}</span>
+              <span className="text-[16px]">{curName[cur]}</span>
             </div>
-            <div className="mt-[17px] flex h-[20px] items-center justify-between px-[1px] text-[15px]"><span className="text-muted-foreground">العملية</span><span className="font-bold">تحويل إلى مشترك</span></div>
-            <div className="mt-[11px] flex h-[58px] flex-col justify-center gap-[6px] rounded-[12px] border-[1.5px] border-foreground text-center text-[15px] font-bold leading-[20px]">
+            <div className="mt-[17px] flex h-[20px] items-center justify-between px-[1px] text-[15px]"><span className="text-muted-foreground">العملية</span><span className="font-semibold">تحويل إلى مشترك</span></div>
+            <div className="mt-[11px] flex h-[58px] flex-col justify-center gap-[6px] rounded-[12px] border border-foreground text-center text-[15px] font-bold leading-[20px]">
               <div>{who.name}</div>
               <div>{who.phone}</div>
             </div>
