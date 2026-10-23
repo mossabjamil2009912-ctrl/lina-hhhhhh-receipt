@@ -149,7 +149,7 @@ function ServicePage() {
   return (
     <div style={{ touchAction: "pan-y", WebkitOverflowScrolling: "touch" }} className={`h-[100dvh] overflow-y-auto overflow-x-hidden overscroll-contain ${menu || custom ? "bg-background" : "bg-card"}`}>
       <div className={`relative mx-auto max-w-[430px] ${id === "reports" ? "pb-[110px]" : ""}`}>
-        <header className="flex items-center gap-3 px-[14px] pb-[18px] pt-[54px]">
+        <header className="flex items-center gap-3 px-[14px] pb-[18px] pt-[24px]">
           <Link to={g?.parent === "ent" ? "/service/$id" : g || parentOf[id] ? "/service/$id" : "/"} params={{ id: g ? (g.parent === "ent" ? "entertainment" : g.parent) : parentOf[id] ?? "transfers" }} aria-label="رجوع" className="p-1 active:scale-90"><ChevronRight className="h-[26px] w-[26px]" strokeWidth={2.2} /></Link>
           <h1 className="text-[14.5px] font-bold">{id === "reports" ? "أخرى" : g?.label ?? serviceNames[id] ?? "خدمة"}</h1>
           {menu?.refresh && (
