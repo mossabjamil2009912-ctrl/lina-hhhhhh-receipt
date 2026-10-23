@@ -2,6 +2,19 @@
 @source "../src";
 @import "tw-animate-css";
 
+@font-face { font-family: 'Lina Round'; src: url('/fonts/linaround_thin.otf') format('opentype'); font-weight: 100; font-display: swap; }
+@font-face { font-family: 'Lina Round'; src: url('/fonts/linaround_extra_light.otf') format('opentype'); font-weight: 200; font-display: swap; }
+@font-face { font-family: 'Lina Round'; src: url('/fonts/linaround_light.otf') format('opentype'); font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Lina Round'; src: url('/fonts/linaround_regular.otf') format('opentype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Lina Round'; src: url('/fonts/linaround_semi_bold.otf') format('opentype'); font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Lina Round'; src: url('/fonts/linaround_bold.otf') format('opentype'); font-weight: 700 900; font-display: swap; }
+@font-face { font-family: 'Circe Rounded'; src: url('/fonts/circle_rounded_thin.otf') format('opentype'); font-weight: 100; font-display: swap; unicode-range: U+0000-00FF, U+2000-206F, U+20AC; }
+@font-face { font-family: 'Circe Rounded'; src: url('/fonts/circle_rounded_extra_light.otf') format('opentype'); font-weight: 200; font-display: swap; unicode-range: U+0000-00FF, U+2000-206F, U+20AC; }
+@font-face { font-family: 'Circe Rounded'; src: url('/fonts/circle_rounded_light.otf') format('opentype'); font-weight: 300; font-display: swap; unicode-range: U+0000-00FF, U+2000-206F, U+20AC; }
+@font-face { font-family: 'Circe Rounded'; src: url('/fonts/circle_rounded_regular.otf') format('opentype'); font-weight: 400; font-display: swap; unicode-range: U+0000-00FF, U+2000-206F, U+20AC; }
+@font-face { font-family: 'Circe Rounded'; src: url('/fonts/circle_rounded_bold.otf') format('opentype'); font-weight: 700; font-display: swap; unicode-range: U+0000-00FF, U+2000-206F, U+20AC; }
+@font-face { font-family: 'Circe Rounded'; src: url('/fonts/circle_rounded_extra_bold.otf') format('opentype'); font-weight: 800 900; font-display: swap; unicode-range: U+0000-00FF, U+2000-206F, U+20AC; }
+
 @custom-variant dark (&:is(.dark *));
 
 /*
@@ -38,7 +51,7 @@
   --color-success: var(--success);
   --color-dark-card: var(--dark-card);
   --color-banner: var(--banner);
-  --font-sans: 'Almarai', sans-serif;
+  --font-sans: 'Circe Rounded', 'Lina Round', sans-serif;
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
