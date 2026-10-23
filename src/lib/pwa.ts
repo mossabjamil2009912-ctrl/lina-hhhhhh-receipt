@@ -27,39 +27,58 @@ export async function setupPwa() {
 
 export type UpdateResult = "offline" | "latest" | "updating" | "unsupported";
 
-// Called only from «تحديث بيانات التطبيق».
-export async function checkForUpdate(): Promise<UpdateResult> {
+/** Downloads a new version (if any) without applying it. */
+export async function findUpdate(): Promise<ServiceWorker | null | "offline" | "unsupported"> {
   if (typeof window === "undefined" || !("serviceWorker" in navigator)) return "unsupported";
   if (!navigator.onLine) return "offline";
   const reg = await navigator.serviceWorker.getRegistration("/");
   if (!reg) return "unsupported";
+  if (reg.waiting) return reg.waiting;
   // Listen before calling update(): its promise can resolve before `installing` is set.
   const found = new Promise<ServiceWorker | null>((res) => {
     if (reg.installing) return res(reg.installing);
     const t = setTimeout(() => res(reg.installing), 8000);
     reg.addEventListener("updatefound", () => { clearTimeout(t); res(reg.installing); }, { once: true });
   });
-  if (!reg.waiting) {
-    try { await reg.update(); } catch { return "offline"; }
-  }
-  let waiting = reg.waiting;
-  if (!waiting) {
-    const w = await found;
-    if (w) {
-      await new Promise<void>((res) => {
-        if (w.state === "installed" || w.state === "redundant") return res();
-        const t = setTimeout(res, 60000);
-        w.addEventListener("statechange", () => {
-          if (w.state === "installed" || w.state === "redundant") { clearTimeout(t); res(); }
-        });
+  try { await reg.update(); } catch { return "offline"; }
+  const w = await found;
+  if (w) {
+    await new Promise<void>((res) => {
+      if (w.state === "installed" || w.state === "redundant") return res();
+      const t = setTimeout(res, 60000);
+      w.addEventListener("statechange", () => {
+        if (w.state === "installed" || w.state === "redundant") { clearTimeout(t); res(); }
       });
-    }
-    waiting = reg.waiting;
+    });
   }
-  if (!waiting) return "latest";
+  return reg.waiting;
+}
+
+/** Applies a downloaded version and reloads. Only after the user agrees. */
+export function applyUpdate(w: ServiceWorker) {
   navigator.serviceWorker.addEventListener("controllerchange", () => location.reload(), { once: true });
-  waiting.postMessage({ type: "SKIP_WAITING" });
+  w.postMessage({ type: "SKIP_WAITING" });
+}
+
+// Called from «تحديث بيانات التطبيق».
+export async function checkForUpdate(): Promise<UpdateResult> {
+  const r = await findUpdate();
+  if (r === "offline" || r === "unsupported") return r;
+  if (!r) return "latest";
+  applyUpdate(r);
   return "updating";
+}
+
+/** Checks once on open; returns the waiting version if one was downloaded. */
+export function usePendingUpdate() {
+  const [w, set] = useState<ServiceWorker | null>(null);
+  useEffect(() => {
+    if (typeof window === "undefined" || !("serviceWorker" in navigator)) return;
+    let stop = false;
+    navigator.serviceWorker.ready.then(() => findUpdate()).then((r) => { if (!stop && r && typeof r !== "string") set(r); }).catch(() => {});
+    return () => { stop = true; };
+  }, []);
+  return { pending: w, dismiss: () => set(null) };
 }
 
 // Ask Android not to clear the app's saved data.
