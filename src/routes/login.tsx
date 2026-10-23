@@ -96,10 +96,10 @@ function Login() {
         </button>
 
         <div style={box(41, 730, 175, 864)} className="rounded-[8px] border border-foreground/10 bg-transparent">
-          <img src={ph} alt="" style={{ position: "absolute", left: 30 / S, top: 30 / S, width: 72 / S, height: 72 / S, filter: "grayscale(1)" }} />
+          <img src={ph} alt="" style={{ position: "absolute", left: 30 / S, top: 30 / S, width: 72 / S, height: 72 / S, filter: "grayscale(1) contrast(1.6)", mixBlendMode: "multiply" }} />
         </div>
         <div style={box(195, 730, 836, 864)} className="rounded-[8px] border border-foreground/10 bg-transparent">
-          <span style={{ position: "absolute", right: 35 / S, top: -58 / S }} className="whitespace-nowrap text-[17px] leading-none text-muted-foreground">رقم الموبايل</span>
+          <span style={{ position: "absolute", right: 35 / S, top: -44 / S }} className="whitespace-nowrap text-[17px] leading-none text-muted-foreground">رقم الموبايل</span>
           <input value={phone} onChange={(e) => setPhone(e.target.value)} inputMode="numeric" dir="ltr" aria-label="رقم الموبايل" className="h-full w-full bg-transparent px-[14px] text-right text-[19px] outline-none" />
         </div>
 
@@ -110,7 +110,7 @@ function Login() {
             <input type="password" value={pw} onChange={(e) => { setPw(e.target.value); setErr(false); }} inputMode="numeric" autoComplete="current-password" aria-label="كلمة المرور" dir="ltr" className="h-full w-full bg-transparent pl-[48px] pr-[20px] text-right text-[19px] outline-none" />
           )}
           {!bio && !pw && <span style={{ position: "absolute", right: 38 / S, top: 0, bottom: 0 }} className="pointer-events-none flex items-center text-[18px] text-muted-foreground">كلمة المرور</span>}
-          <button type="button" onClick={finger} aria-label="البصمة" style={{ position: "absolute", left: 28 / S, top: 36 / S, width: 68 / S, height: 68 / S }}><img src={fp} alt="" className="h-full w-full" /></button>
+          <button type="button" onClick={finger} aria-label="البصمة" style={{ position: "absolute", left: 28 / S, top: 36 / S, width: 68 / S, height: 68 / S }}><img src={fp} alt="" className="h-full w-full contrast-[1.6]" /></button>
         </div>
         <p style={{ position: "absolute", right: 40 / S, top: 1052 / S }} className={`text-[16px] leading-none ${err ? "text-primary" : "text-foreground/70"}`}>{err ? "كلمة المرور غير صحيحة" : "طول كلمة المرور يجب أن يكون 4 أرقام أو أكثر"}</p>
         <button type="button" style={{ position: "absolute", right: 40 / S, top: 1116 / S }} className="text-[18px] font-bold leading-none">نسيت كلمة المرور؟</button>
@@ -133,7 +133,7 @@ function Login() {
           </button>
         )}
 
-        {[{ img: c0, label: "الرقم المجاني", x: 614 }, { img: c1, label: "نقاط الخدمة", x: 437 }, { img: c2, label: "خدمة العملاء", x: 264 }].map((c) => (
+        {[{ img: c0, label: "الرقم المجاني", x: 630 }, { img: c1, label: "نقاط الخدمة", x: 437 }, { img: c2, label: "خدمة العملاء", x: 244 }].map((c) => (
           <button key={c.label} type="button" style={box(c.x - 85, 1444, c.x + 85, 1600)} className="transition active:scale-90">
             <img src={c.img} alt="" style={{ position: "absolute", left: 20 / S, top: -6 / S, width: 130 / S, height: 130 / S, filter: "contrast(1.25)" }} />
             <span style={{ position: "absolute", left: 0, right: 0, top: 132 / S }} className="whitespace-nowrap text-center text-[14.5px] leading-none text-foreground/75">{c.label}</span>
