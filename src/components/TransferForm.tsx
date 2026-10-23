@@ -2,7 +2,8 @@ import { addOp } from "@/lib/ops";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { toPng } from "html-to-image";
 import { JaibLoader, JaibReceiptLogo } from "@/components/JaibMark";
-import okTone from "@/assets/jaib/tone2.mp3.asset.json";
+import toneUrl from "@/assets/jaib/tone2.mp3";
+const okTone = { url: toneUrl };
 import { Copy, Download, Eye, EyeOff, Heart, Share2, X } from "lucide-react";
 import top from "@/assets/jaib/sub_top.webp";
 import ct from "@/assets/jaib/sub_ct.webp";
@@ -59,10 +60,16 @@ export function TransferForm() {
   const rcpt = useRef<HTMLDivElement>(null);
   const tone = useRef<HTMLAudioElement | null>(null);
   useEffect(() => {
+    let blobUrl = "";
     const a = new Audio(okTone.url);
     a.preload = "auto";
-    a.load();
     tone.current = a;
+    fetch(okTone.url).then((r) => r.blob()).then((b) => {
+      blobUrl = URL.createObjectURL(b);
+      a.src = blobUrl;
+      a.load();
+    }).catch(() => a.load());
+    return () => { if (blobUrl) URL.revokeObjectURL(blobUrl); };
   }, []);
 
   const n = Number(amount);
