@@ -56,7 +56,7 @@ function Login() {
   }, []);
 
   const enter = async () => {
-    localStorage.setItem("jaib-auth", "1");
+    sessionStorage.setItem("jaib-auth", "1");
     await router.navigate({ to: "/" });
   };
 
@@ -80,8 +80,8 @@ function Login() {
   const tab = (on: boolean) => `rounded-[6px] border transition active:scale-95 ${on ? "border-foreground/30 bg-login-tab" : "border-foreground/15 bg-transparent"}`;
 
   return (
-    <div className="flex h-[100dvh] w-full justify-center overflow-hidden bg-background">
-      <form onSubmit={submit} style={{ zoom, width: W, height: H }} className="relative shrink-0 overflow-hidden bg-background [&_img]:mix-blend-multiply">
+    <div className="flex h-[100dvh] w-full justify-center overflow-hidden bg-card">
+      <form onSubmit={submit} style={{ zoom, width: W, height: H }} className="relative shrink-0 overflow-hidden bg-card [&_img]:mix-blend-multiply">
         <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[200px] opacity-[0.04] [mask-image:linear-gradient(to_bottom,black,transparent)]" style={{ backgroundImage: `url(${mlogo})`, backgroundSize: "44px auto", backgroundRepeat: "repeat" }} />
         <img src={logo} alt="جيب" style={box(310, 100, 580, 220)} />
         <h1 style={{ position: "absolute", right: 35 / S, top: 300 / S }} className="text-[19px] font-extrabold leading-none">مرحبًا بعودتك</h1>
