@@ -41,7 +41,7 @@ function Login() {
   const [type, setType] = useState<"client" | "pos">("client");
   const [phone, setPhone] = useState("773590979");
   useEffect(() => setPhone(readOwner().phone), []);
-  const [pw, setPw] = useState("7735909");
+  const [pw, setPw] = useState("");
   const [err, setErr] = useState(false);
   const [busy, setBusy] = useState(false);
   const [offline, setOffline] = useState(false);
@@ -83,47 +83,47 @@ function Login() {
       <form onSubmit={submit} style={{ zoom, width: W, height: H }} className="relative shrink-0 overflow-hidden bg-card [&_img]:mix-blend-multiply">
         <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[150px] opacity-[0.035] [mask-image:linear-gradient(to_bottom,black,transparent)]" style={{ backgroundImage: `url(${mlogo})`, backgroundSize: "44px auto", backgroundRepeat: "repeat" }} />
         <img src={logo} alt="جيب" style={box(318, 112, 556, 216)} />
-        <h1 style={{ position: "absolute", right: 60 / S, top: 330 / S }} className="text-[22px] font-bold leading-none">مرحبًا بعودتك</h1>
-        <p style={{ position: "absolute", right: 60 / S, top: 400 / S }} className="text-[18px] leading-none text-foreground/80">قم بتسجيل الدخول</p>
+        <h1 style={{ position: "absolute", right: 60 / S, top: 330 / S }} className="text-[27px] font-bold leading-none">مرحبًا بعودتك</h1>
+        <p style={{ position: "absolute", right: 60 / S, top: 400 / S }} className="text-[22px] leading-none text-foreground/80">قم بتسجيل الدخول</p>
 
         <button type="button" onClick={() => setType("client")} style={box(454, 500, 832, 677)} className={tab(type === "client")}>
-          <img src={usr} alt="" style={{ position: "absolute", left: (643 - 454) / S, top: 28 / S, width: 64 / S, height: 64 / S }} />
-          <span style={{ position: "absolute", left: 0, right: 0, top: 112 / S }} className="text-center text-[15px] leading-none">عميل</span>
+          <img src={usr} alt="" style={{ position: "absolute", left: (643 - 454) / S, top: 28 / S, width: 72 / S, height: 72 / S }} />
+          <span style={{ position: "absolute", left: 0, right: 0, top: 112 / S }} className="text-center text-[18px] leading-none">عميل</span>
         </button>
         <button type="button" onClick={() => setType("pos")} style={box(41, 500, 425, 677)} className={tab(type === "pos")}>
           <img src={bld} alt="" style={{ position: "absolute", left: (196 - 41) / S, top: 28 / S, width: 74 / S, height: 72 / S }} />
-          <span style={{ position: "absolute", left: 0, right: 0, top: 112 / S }} className="text-center text-[15px] leading-none">نقطة مبيعات</span>
+          <span style={{ position: "absolute", left: 0, right: 0, top: 112 / S }} className="text-center text-[18px] leading-none">نقطة مبيعات</span>
         </button>
 
         <div style={box(41, 730, 175, 864)} className="rounded-[8px] border border-foreground/10 bg-transparent">
-          <img src={ph} alt="" style={{ position: "absolute", left: 38 / S, top: 36 / S, width: 57 / S, height: 59 / S }} />
+          <img src={ph} alt="" style={{ position: "absolute", left: 30 / S, top: 30 / S, width: 72 / S, height: 72 / S, filter: "grayscale(1)" }} />
         </div>
         <div style={box(195, 730, 836, 864)} className="rounded-[8px] border border-foreground/10 bg-transparent">
-          <span style={{ position: "absolute", right: 35 / S, top: -14 / S }} className="bg-card px-[2px] text-[13px] leading-none text-muted-foreground">رقم الموبايل</span>
-          <input value={phone} onChange={(e) => setPhone(e.target.value)} inputMode="numeric" dir="ltr" aria-label="رقم الموبايل" className="h-full w-full bg-transparent px-[14px] pt-[8px] text-right text-[16px] outline-none" />
+          <span style={{ position: "absolute", right: 35 / S, top: -58 / S }} className="whitespace-nowrap text-[17px] leading-none text-muted-foreground">رقم الموبايل</span>
+          <input value={phone} onChange={(e) => setPhone(e.target.value)} inputMode="numeric" dir="ltr" aria-label="رقم الموبايل" className="h-full w-full bg-transparent px-[14px] text-right text-[19px] outline-none" />
         </div>
 
         <div style={box(37, 893, 840, 1033)} className={`rounded-[8px] border bg-transparent ${err ? "border-primary" : "border-foreground/25"}`}>
           {bio ? (
             <div className="absolute inset-0 flex items-center justify-center"><div className="scale-[0.7] drop-shadow-[0_1px_3px_rgba(0,0,0,0.25)]"><JaibLoader /></div></div>
           ) : (
-            <input type="password" value={pw} onChange={(e) => { setPw(e.target.value); setErr(false); }} inputMode="numeric" autoComplete="current-password" aria-label="كلمة المرور" dir="ltr" className="h-full w-full bg-transparent pl-[48px] pr-[110px] text-right text-[16px] outline-none" />
+            <input type="password" value={pw} onChange={(e) => { setPw(e.target.value); setErr(false); }} inputMode="numeric" autoComplete="current-password" aria-label="كلمة المرور" dir="ltr" className="h-full w-full bg-transparent pl-[48px] pr-[20px] text-right text-[19px] outline-none" />
           )}
-          {!bio && <span style={{ position: "absolute", right: 38 / S, top: 0, bottom: 0 }} className="pointer-events-none flex items-center text-[15px] text-muted-foreground">كلمة المرور</span>}
-          <button type="button" onClick={finger} aria-label="البصمة" style={{ position: "absolute", left: 30 / S, top: 42 / S, width: 56 / S, height: 56 / S }}><img src={fp} alt="" className="h-full w-full" /></button>
+          {!bio && !pw && <span style={{ position: "absolute", right: 38 / S, top: 0, bottom: 0 }} className="pointer-events-none flex items-center text-[18px] text-muted-foreground">كلمة المرور</span>}
+          <button type="button" onClick={finger} aria-label="البصمة" style={{ position: "absolute", left: 28 / S, top: 36 / S, width: 68 / S, height: 68 / S }}><img src={fp} alt="" className="h-full w-full" /></button>
         </div>
-        <p style={{ position: "absolute", right: 40 / S, top: 1052 / S }} className={`text-[13.5px] leading-none ${err ? "text-primary" : "text-foreground/70"}`}>{err ? "كلمة المرور غير صحيحة" : "طول كلمة المرور يجب أن يكون 4 أرقام أو أكثر"}</p>
-        <button type="button" style={{ position: "absolute", right: 40 / S, top: 1116 / S }} className="text-[15px] font-bold leading-none">نسيت كلمة المرور؟</button>
+        <p style={{ position: "absolute", right: 40 / S, top: 1052 / S }} className={`text-[16px] leading-none ${err ? "text-primary" : "text-foreground/70"}`}>{err ? "كلمة المرور غير صحيحة" : "طول كلمة المرور يجب أن يكون 4 أرقام أو أكثر"}</p>
+        <button type="button" style={{ position: "absolute", right: 40 / S, top: 1116 / S }} className="text-[18px] font-bold leading-none">نسيت كلمة المرور؟</button>
 
-        <button type="submit" disabled={busy || bio} style={box(33, 1183, 848, 1302)} className="rounded-[12px] bg-primary text-[16px] font-bold text-primary-foreground transition active:scale-[0.98] disabled:opacity-90">
+        <button type="submit" disabled={busy || bio} style={box(33, 1183, 848, 1302)} className="rounded-[12px] bg-primary text-[19px] brightness-[0.92] font-bold text-primary-foreground transition active:scale-[0.98] disabled:opacity-90">
           {type === "client" ? "تسجيل الدخول كـ عميل" : "تسجيل الدخول كـ نقطة مبيعات"}
         </button>
 
-        <label style={{ position: "absolute", right: 38 / S, top: 1335 / S }} className="flex items-center gap-[8px] text-[17px] font-bold leading-none">
-          <input type="checkbox" checked={offline} onChange={(e) => setOffline(e.target.checked)} className="h-[20px] w-[20px] rounded-[5px] accent-primary" />
+        <label style={{ position: "absolute", right: 38 / S, top: 1335 / S }} className="flex items-center gap-[10px] text-[20px] font-bold leading-none">
+          <input type="checkbox" checked={offline} onChange={(e) => setOffline(e.target.checked)} className="h-[25px] w-[25px] appearance-none rounded-[6px] border-2 border-foreground/70 checked:bg-primary checked:border-primary" />
           دخول بدون نت
         </label>
-        <p style={{ position: "absolute", left: 33 / S, top: 1340 / S }} className="text-[13.5px] leading-none text-muted-foreground">
+        <p style={{ position: "absolute", left: 33 / S, top: 1340 / S }} className="text-[16px] leading-none text-muted-foreground">
           لا تمتلك حساب؟ <button type="button" className="font-bold text-primary">إنشاء حساب</button>
         </p>
 
@@ -135,8 +135,8 @@ function Login() {
 
         {[{ img: c0, label: "الرقم المجاني", x: 614 }, { img: c1, label: "نقاط الخدمة", x: 437 }, { img: c2, label: "خدمة العملاء", x: 264 }].map((c) => (
           <button key={c.label} type="button" style={box(c.x - 85, 1444, c.x + 85, 1600)} className="transition active:scale-90">
-            <img src={c.img} alt="" style={{ position: "absolute", left: 28 / S, top: 0, width: 114 / S, height: 114 / S }} />
-            <span style={{ position: "absolute", left: 0, right: 0, top: 132 / S }} className="whitespace-nowrap text-center text-[14px] leading-none text-foreground/75">{c.label}</span>
+            <img src={c.img} alt="" style={{ position: "absolute", left: 20 / S, top: -6 / S, width: 130 / S, height: 130 / S, filter: "contrast(1.25)" }} />
+            <span style={{ position: "absolute", left: 0, right: 0, top: 132 / S }} className="whitespace-nowrap text-center text-[14.5px] leading-none text-foreground/75">{c.label}</span>
           </button>
         ))}
 
