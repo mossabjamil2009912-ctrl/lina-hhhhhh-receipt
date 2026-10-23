@@ -151,7 +151,7 @@ function ServicePage() {
       <div className={`relative mx-auto max-w-[430px] ${id === "reports" ? "pb-[110px]" : ""}`}>
         <header className="flex items-center gap-3 px-[14px] pb-[18px] pt-[24px]">
           <Link to={g?.parent === "ent" ? "/service/$id" : g || parentOf[id] ? "/service/$id" : "/"} params={{ id: g ? (g.parent === "ent" ? "entertainment" : g.parent) : parentOf[id] ?? "transfers" }} aria-label="رجوع" className="p-1 active:scale-90"><ChevronRight className="h-[26px] w-[26px]" strokeWidth={2.2} /></Link>
-          <h1 className="text-[14.5px] font-bold">{id === "reports" ? "أخرى" : g?.label ?? serviceNames[id] ?? "خدمة"}</h1>
+          <h1 className="text-[17px] font-bold">{id === "reports" ? "أخرى" : g?.label ?? serviceNames[id] ?? "خدمة"}</h1>
           {menu?.refresh && (
             <button onClick={() => setSpin(spin + 1)} className="ms-auto flex h-[28px] items-center gap-[6px] rounded-[6px] bg-card px-[12px] text-[12px] active:scale-95">
               <RefreshCw className="h-[22px] w-[22px] text-primary transition-transform duration-700" style={{ transform: `rotate(${spin * 360}deg)` }} />
@@ -187,12 +187,12 @@ function ServicePage() {
               t.to ? (
                 <Link key={t.label} to="/service/$id" params={{ id: t.to }} className="flex h-[74px] items-center gap-[24px] rounded-[12px] bg-card px-[12px] text-start transition active:scale-[0.98]">
                   <img src={t.img} alt="" className={`h-[49px] w-[66px] rounded-[10px] object-cover ${t.to?.startsWith("op-you") ? "scale-[1.12]" : ""}`} />
-                  <span className="text-[13.5px]">{t.label}</span>
+                  <span className="text-[16px]">{t.label}</span>
                 </Link>
               ) : (
               <Link key={t.label} to="/service/$id" params={{ id: `f_${id}_${menu.items.indexOf(t)}` }} className="flex h-[74px] items-center gap-[24px] rounded-[12px] bg-card px-[12px] text-start transition active:scale-[0.98]">
                 <img src={t.img} alt="" className="h-[49px] w-[66px] rounded-[10px] object-cover" />
-                <span className="text-[13.5px]">{t.label}</span>
+                <span className="text-[16px]">{t.label}</span>
               </Link>
               )
             ))}

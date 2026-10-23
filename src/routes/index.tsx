@@ -64,16 +64,16 @@ function Ops() {
       {ops.map((o, i) => (
         <button key={i} style={box(23, OP0 + i * (OPH + OPG), 841, OP0 + i * (OPH + OPG) + OPH)} className="rounded-[14px] bg-card transition-colors duration-150 active:bg-muted">
           <img src={o.sign > 0 ? i0 : i5} alt="" style={{ position: "absolute", right: 22 / S, top: 44 / S, width: 80 / S, height: 80 / S }} />
-          <span style={{ position: "absolute", right: 112 / S, top: 40 / S }} className="text-[15.5px] font-bold leading-none">{o.title}</span>
-          <span style={{ position: "absolute", right: 112 / S, top: 98 / S }} className="text-[13px] leading-none text-muted-foreground" dir="ltr">{o.date}</span>
+          <span style={{ position: "absolute", right: 112 / S, top: 40 / S }} className="text-[17px] font-bold leading-none">{o.title}</span>
+          <span style={{ position: "absolute", right: 112 / S, top: 98 / S }} className="text-[16px] leading-none text-muted-foreground" dir="ltr">{o.date}</span>
           <span style={{ position: "absolute", left: 28 / S, top: 62 / S }} className="flex items-baseline gap-[4px] leading-none" dir="ltr">
-            <span className="text-[12.5px]">{curName[o.cur]}</span>
-            <span className={`text-[17px] font-bold ${o.sign > 0 ? "text-success" : "text-primary"}`}><span className="flex" dir="ltr"><span>{num(o.amount)}</span>{o.sign < 0 && <span>-</span>}</span></span>
+            <span className="text-[14px]">{curName[o.cur]}</span>
+            <span className={`text-[19px] font-bold ${o.sign > 0 ? "text-success" : "text-primary"}`}><span className="flex" dir="ltr"><span>{num(o.amount)}</span>{o.sign < 0 && <span>-</span>}</span></span>
           </span>
         </button>
       ))}
       {ops.length > 0 && (
-        <button style={{ ...box(0, OP0 + ops.length * (OPH + OPG) + 10, 864, OP0 + ops.length * (OPH + OPG) + 70) }} className="text-center text-[13px] font-bold active:opacity-60">عرض أخر العمليات</button>
+        <button style={{ ...box(0, OP0 + ops.length * (OPH + OPG) + 10, 864, OP0 + ops.length * (OPH + OPG) + 70) }} className="text-center text-[16px] font-bold active:opacity-60">عرض أخر العمليات</button>
       )}
     </>
   );
@@ -153,8 +153,8 @@ function Index() {
     <div className="flex h-[100dvh] w-full justify-center overflow-hidden bg-background">
       <div style={{ zoom, width: W, height: vh }} className="relative shrink-0 overflow-hidden bg-background">
        <div style={{ position: "absolute", left: 0, top: -TOP / S, width: W, height: vh + TOP / S }}>
-        <h1 style={{ position: "absolute", right: 29 / S, top: 80 / S }} className="text-[19.5px] font-extrabold leading-none">{greet}</h1>
-        <p style={{ position: "absolute", right: 29 / S, top: 148 / S }} className="text-[17px] leading-none"><OwnerFirst /></p>
+        <h1 style={{ position: "absolute", right: 29 / S, top: 80 / S }} className="text-[21px] font-bold leading-none">{greet}</h1>
+        <p style={{ position: "absolute", right: 29 / S, top: 148 / S }} className="text-[18px] leading-none"><OwnerFirst /></p>
         <button style={box(135, 90, 235, 182)} className="transition-transform active:scale-90"><img src={bot} alt="المساعد" className="h-full w-full" /></button>
         <button style={box(27, 90, 127, 182)} className="transition-transform active:scale-90"><img src={bell} alt="الإشعارات" className="h-full w-full" /></button>
         <div style={{ position: "absolute", left: 0, right: 0, top: 200 / S, bottom: 0, overflowY: "auto", overflowX: "hidden", touchAction: "pan-y", WebkitOverflowScrolling: "touch", overscrollBehavior: "contain" }} className="no-scrollbar">
@@ -172,12 +172,12 @@ function Index() {
               return (
                 <Link key={label} to="/service/$id" params={{ id }} style={box(x1, y1, x2, y2)} className="rounded-[14px] bg-card transition-transform duration-150 active:scale-95">
                   <img src={img} alt="" style={{ position: "absolute", left: (cx - 48 - x1) / S, top: 18 / S, width: 96 / S, height: 96 / S }} />
-                  <span style={{ position: "absolute", left: 0, right: 0, top: 120 / S }} className="text-center text-[14.5px] leading-none">{label}</span>
+                  <span style={{ position: "absolute", left: 0, right: 0, top: 120 / S }} className="text-center text-[16.5px] leading-none">{label}</span>
                 </Link>
               );
             })}
 
-            <h2 style={{ position: "absolute", right: 29 / S, top: 1660 / S }} className="text-[19px] font-extrabold leading-none">العمليات</h2>
+            <h2 style={{ position: "absolute", right: 29 / S, top: 1660 / S }} className="text-[22px] font-bold leading-none">العمليات</h2>
             <Ops />
           </div>
         </div>
