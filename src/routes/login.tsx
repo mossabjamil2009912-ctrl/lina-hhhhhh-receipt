@@ -99,7 +99,7 @@ function Login() {
           <img src={ph} alt="" style={{ position: "absolute", left: 30 / S, top: 30 / S, width: 72 / S, height: 72 / S, filter: "grayscale(1) contrast(1.6)", mixBlendMode: "multiply" }} />
         </div>
         <div style={box(195, 730, 836, 864)} className="rounded-[8px] border border-foreground/10 bg-transparent">
-          <span style={{ position: "absolute", right: 35 / S, top: -44 / S }} className="whitespace-nowrap text-[17px] leading-none text-muted-foreground">رقم الموبايل</span>
+          <span style={{ position: "absolute", right: 35 / S, top: -44 / S }} className="whitespace-nowrap text-[17px] leading-none text-foreground/55">رقم الموبايل</span>
           <input value={phone} onChange={(e) => setPhone(e.target.value)} inputMode="numeric" dir="ltr" aria-label="رقم الموبايل" className="h-full w-full bg-transparent px-[14px] text-right text-[19px] outline-none" />
         </div>
 
@@ -130,8 +130,8 @@ function Login() {
         </p>
 
         {sheet && (
-          <button type="button" onClick={finger} aria-label="الدخول بالبصمة" style={{ ...box(362, 1381, 528, 1530), zIndex: 30 }} className="rounded-full bg-card transition active:scale-90">
-            <img src={fpBig} alt="" className="h-full w-full" />
+          <button type="button" onClick={finger} aria-label="الدخول بالبصمة" style={{ ...box(362, 1381, 528, 1530), zIndex: 30 }} className="rounded-full transition active:scale-90">
+            <img src={fpBig} alt="" className="h-full w-full" style={{ clipPath: "circle(47% at 50% 50%)" }} />
           </button>
         )}
 
@@ -147,7 +147,7 @@ function Login() {
           <div style={{ ...box(56, 825, 832, 1289), zIndex: 20 }} className="rounded-[26px] bg-login-sheet shadow-[0_6px_30px_rgba(0,0,0,0.15)]">
             <div style={{ position: "absolute", left: 0, right: 0, top: 68 / S }} className="flex items-center justify-center gap-[6px]">
               <span className="text-[13px] leading-none text-foreground/70">جيب</span>
-              <img src={mlogo} alt="" style={{ width: 80 / S, height: 36 / S }} />
+              <img src={mlogo} alt="" style={{ width: 40 / S, height: 36 / S, objectFit: "cover", objectPosition: "left" }} />
             </div>
             <div style={{ position: "absolute", left: 0, right: 0, top: 150 / S }} className="text-center text-[18px] font-bold leading-none">محفظة جيب</div>
             <div style={{ position: "absolute", left: 0, right: 0, top: 206 / S }} className="text-center text-[17px] leading-none text-foreground/80" dir="ltr">{phone}</div>
