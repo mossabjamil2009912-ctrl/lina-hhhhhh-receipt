@@ -141,7 +141,8 @@ const rows: [number, number][] = [[966, 1162], [1191, 1387], [1415, 1611]];
 function Index() {
   const [zoom, setZoom] = useState(1);
   const [vh, setVh] = useState(H);
-  const greet = new Date().getHours() < 12 ? "صباح الخير" : "مساء الخير";
+  const now = new Date();
+  const greet = now.getDay() === 5 ? "جمعتك مباركة" : now.getHours() < 12 ? "صباح الخير" : "مساء الخير";
   useEffect(() => {
     const f = () => { const z = window.innerWidth / W; setZoom(z); setVh(window.innerHeight / z); };
     f();
@@ -172,12 +173,12 @@ function Index() {
               return (
                 <Link key={label} to="/service/$id" params={{ id }} style={box(x1, y1, x2, y2)} className="rounded-[14px] bg-card transition-transform duration-150 active:scale-95">
                   <img src={img} alt="" style={{ position: "absolute", left: (cx - 48 - x1) / S, top: 18 / S, width: 96 / S, height: 96 / S }} />
-                  <span style={{ position: "absolute", left: 0, right: 0, top: 120 / S }} className="text-center text-[17.5px] leading-none">{label}</span>
+                  <span className="text-center text-[17.5px] leading-none" style={{ position: "absolute", left: 0, right: 0, top: 120 / S, fontFeatureSettings: '"liga" 0, "clig" 0' }}>{label}</span>
                 </Link>
               );
             })}
 
-            <h2 style={{ position: "absolute", right: 29 / S, top: 1660 / S }} className="text-[24px] font-bold leading-none">العمليات</h2>
+            <h2 style={{ position: "absolute", right: 29 / S, top: 1660 / S }} className="text-[26px] font-bold leading-none">العمليات</h2>
             <Ops />
           </div>
         </div>
@@ -255,8 +256,8 @@ function Cards() {
               <img src={card} alt="" draggable={false} className="pointer-events-none absolute inset-0 h-full w-full" />
               <div style={{ position: "absolute", left: 270 / S, top: 35 / S, width: 205 / S, height: 180 / S, background: "rgb(228,18,45)" }} />
               <div style={{ position: "absolute", right: 37 / S, top: 52 / S }} className="text-right leading-none text-primary-foreground">
-                <div className="text-[10.5px]">حساب</div>
-                <div className="mt-[12px] text-[14.5px] font-bold">{a.name}</div>
+                <div className="text-[12px]">حساب</div>
+                <div className="mt-[12px] text-[16.5px] font-bold">{a.name}</div>
                 {show && isCenter ? (
                   <div className="mt-[12px] text-[23px] font-extrabold tracking-tight" dir="ltr">{a.amount}</div>
                 ) : (
