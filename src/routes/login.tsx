@@ -135,7 +135,7 @@ function Login() {
 
         {[{ img: c0, label: "الرقم المجاني", x: 614 }, { img: c1, label: "نقاط الخدمة", x: 437 }, { img: c2, label: "خدمة العملاء", x: 264 }].map((c) => (
           <button key={c.label} type="button" style={box(c.x - 85, 1444, c.x + 85, 1600)} className="transition active:scale-90">
-            <img src={c.img} alt="" style={{ position: "absolute", left: 28 / S, top: 0, width: 114 / S, height: 114 / S }} />
+            <img src={c.img} alt="" style={{ position: "absolute", left: 20 / S, top: -6 / S, width: 130 / S, height: 130 / S, filter: "contrast(1.25)" }} />
             <span style={{ position: "absolute", left: 0, right: 0, top: 132 / S }} className="whitespace-nowrap text-center text-[16.5px] leading-none text-foreground/75">{c.label}</span>
           </button>
         ))}
