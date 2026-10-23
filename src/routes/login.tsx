@@ -104,10 +104,11 @@ function Login() {
         </div>
 
         {bio && <div className="fixed inset-0 z-40 bg-foreground/30" />}
-        <div style={{ ...box(37, 893, 840, 1033), ...(bio ? { zIndex: 50 } : {}) }} className={`rounded-[8px] border bg-transparent ${err ? "border-primary" : "border-foreground/25"}`}>
-          {bio ? (
-            <div className="absolute inset-0 flex items-center justify-center"><div className="scale-[0.7] drop-shadow-[0_1px_3px_rgba(0,0,0,0.25)]"><JaibLoader /></div></div>
-          ) : (
+        {bio && (
+          <div style={{ ...box(37, 893, 840, 1033), zIndex: 50 }} className="pointer-events-none flex items-center justify-center"><div className="scale-[0.7] drop-shadow-[0_1px_3px_rgba(0,0,0,0.25)]"><JaibLoader /></div></div>
+        )}
+        <div style={box(37, 893, 840, 1033)} className={`rounded-[8px] border bg-transparent ${err ? "border-primary" : "border-foreground/25"}`}>
+          {bio ? null : (
             <input type="password" value={pw} onChange={(e) => { setPw(e.target.value); setErr(false); }} inputMode="numeric" autoComplete="current-password" aria-label="كلمة المرور" dir="ltr" className="h-full w-full bg-transparent pl-[48px] pr-[20px] text-right text-[19px] outline-none" />
           )}
           {!bio && !pw && <span style={{ position: "absolute", right: 38 / S, top: 0, bottom: 0 }} className="pointer-events-none flex items-center text-[18px] text-muted-foreground">كلمة المرور</span>}
