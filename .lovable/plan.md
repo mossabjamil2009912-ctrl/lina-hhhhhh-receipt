@@ -1,10 +1,16 @@
-# Publish the login screen changes
+## إكمال مطابقة شاشة البصمة (التعتيم الخفيف)
 
-The login screen is very close to your photo now: the text sizes, the empty password box, «رقم الموبايل», the icons and the bottom buttons are fixed.
+الهدف: عند فتح نافذة البصمة تصير الشاشة خلفها أغمق قليلًا، مثل صورتك من التطبيق الأصلي، والنافذة نفسها تبقى فاتحة وزر البصمة الأبيض واضح.
 
-It isn't 100% the same, for three reasons:
-- Your photo was taken with another phone's camera, so the light, colors and exact sizes aren't measured precisely.
-- The font's letter shapes are close, but not exactly the same as the original app's.
-- Some spacing was set by eye.
+### ما سيتغير
+1. الطبقة خلف نافذة البصمة: تعتيم أوضح قليلًا (من 10% إلى نحو 30%) فتبدو الشاشة رمادية خافتة كما في الصورة.
+2. نافذة البصمة: تبقى فاتحة كما هي، مع ظل ناعم.
+3. زر البصمة الأبيض الكبير: يبقى فوق التعتيم وواضحًا.
+4. لا تغيير على النصوص أو الأحجام أو الأماكن.
 
-Next step: publish so it reaches your phone. After that, I can keep matching from a real screenshot of the original app if you send one.
+### التحقق
+- لقطة للشاشة بعرض الجوال (384) والنافذة مفتوحة، ومقارنتها بصورتك.
+- ثم النشر، وتحديث التطبيق من «تحديث بيانات التطبيق» أو «نعم».
+
+### تفاصيل تقنية
+- src/routes/login.tsx: طبقة `bg-foreground/10` تصبح `bg-foreground/30` (رمز لون من التصميم، بلا ألوان ثابتة).
