@@ -220,8 +220,8 @@ export function TransferForm() {
         <Sheet top={250} onClose={() => setStep("review")}>
           <div className="px-[17px] pb-[25px] pt-[56px]">
             <h2 className="text-center text-[19px] font-bold leading-[24px]">تأكيد العملية</h2>
-            <button aria-label="البصمة" onClick={() => confirm(true)} className="mx-auto mt-[30px] block active:scale-90"><img src={fpImg} alt="" className="h-[60px] w-[60px]" /></button>
-            <p className="mt-[28px] h-[22px] text-center text-[16px] leading-[22px]">أو قم بإدخال رمز التأكيد أو كلمة المرور</p>
+            <p className="mt-[10px] text-center text-[15.5px] leading-[24px]">لتأكيد العمليات باستخدام البصمة، قم بتفعيل الخيار من الإعدادات</p>
+            <p className="mt-[30px] h-[22px] text-center text-[16px] leading-[22px]">قم بإدخال رمز التأكيد أو كلمة المرور</p>
             <div className={`mt-[12px] flex h-[59px] items-center rounded-[12px] ${pinErr ? "border-2 border-primary" : "border border-border"}`}>
               <button aria-label="إظهار" onClick={() => setPinShow(!pinShow)} className="px-[14px]">{pinShow ? <Eye className="h-6 w-6" strokeWidth={2.5} /> : <EyeOff className="h-6 w-6" strokeWidth={2.5} />}</button>
               <input value={pin} onChange={(e) => { setPin(e.target.value); setPinErr(""); }} inputMode="numeric" type={pinShow ? "text" : "password"} placeholder="رمز التأكيد" className="h-full flex-1 bg-transparent px-[16px] text-left text-[15px] outline-none placeholder:text-muted-foreground" />
