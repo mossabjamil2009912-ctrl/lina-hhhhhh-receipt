@@ -81,7 +81,7 @@ function Login() {
   return (
     <div className="flex h-[100dvh] w-full justify-center overflow-hidden bg-card">
       <form onSubmit={submit} style={{ zoom, width: W, height: H }} className="relative shrink-0 overflow-hidden bg-card [&_img]:mix-blend-multiply">
-        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[200px] opacity-[0.07] [mask-image:linear-gradient(to_bottom,black,transparent)]" style={{ backgroundImage: `url(${mlogo})`, backgroundSize: "44px auto", backgroundRepeat: "repeat" }} />
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[200px] opacity-[0.045] [mask-image:linear-gradient(to_bottom,black,transparent)]" style={{ backgroundImage: `url(${mlogo})`, backgroundSize: "44px auto", backgroundRepeat: "repeat" }} />
         <img src={logo} alt="جيب" style={box(318, 112, 556, 216)} />
         <h1 style={{ position: "absolute", right: 60 / S, top: 330 / S }} className="text-[22px] font-bold leading-none">مرحبًا بعودتك</h1>
         <p style={{ position: "absolute", right: 60 / S, top: 400 / S }} className="text-[18px] leading-none text-foreground/80">قم بتسجيل الدخول</p>
