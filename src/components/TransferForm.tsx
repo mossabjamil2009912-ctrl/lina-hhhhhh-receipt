@@ -242,18 +242,18 @@ export function TransferForm() {
         <Sheet onClose={reset} fit={650}>
           <div ref={rcpt} className="relative rounded-[22px] bg-card pb-[25px] pt-[59px]">
             <JaibReceiptLogo />
-            <h2 className="mt-[18px] text-center text-[19px] font-extrabold leading-[22px]">ايصال العملية</h2>
+            <h2 className="mt-[12px] text-center text-[19px] font-extrabold leading-[22px]">ايصال العملية</h2>
             <div className="mx-[20px] mt-[11px] flex h-[53px] items-center justify-center gap-[14px] rounded-[12px] bg-foreground/15">
               <span className="text-[20px] font-extrabold text-primary">{receipt.amount}</span>
               <span className="text-[16px]">{curName[receipt.cur]}</span>
             </div>
             <div className="mx-[28px] mt-[5px] text-[14px]">
-              <div className="flex h-[42px] items-center justify-between border-b border-border"><span className="text-muted-foreground">رقم مرجع العملية</span>
-                <button onClick={() => navigator.clipboard?.writeText(receipt.ref)} className="flex items-center gap-[6px] font-bold active:scale-95"><Copy className="h-[16px] w-[16px]" />{receipt.ref}</button></div>
-              <div className="flex h-[43px] items-center justify-between border-b border-border"><span className="text-muted-foreground">العملية</span><span className="font-bold">تحويل مشترك</span></div>
-              <div className="flex h-[44px] items-center justify-between border-b border-border"><span className="text-muted-foreground">تاريخ العملية</span><span className="font-bold" dir="ltr">{receipt.date}</span></div>
-              <div className="flex h-[69px] items-start justify-between border-b border-border pt-[12px]"><span className="text-muted-foreground">المستفيد</span><span className="text-end font-bold leading-[26px]">{receipt.name}<br />{receipt.phone}</span></div>
-              <div className="flex h-[68px] items-start justify-between border-b border-border pt-[12px]"><span className="text-muted-foreground">المودع</span><span className="text-end font-bold leading-[26px]"><OwnerName /><br /><OwnerPhone /></span></div>
+              <div className="flex h-[42px] items-center justify-between border-b border-border"><span className="text-foreground/50">رقم مرجع العملية</span>
+                <button onClick={() => navigator.clipboard?.writeText(receipt.ref)} className="flex items-center gap-[6px] font-extrabold active:scale-95"><Copy className="h-[19px] w-[19px]" strokeWidth={2.4} />{receipt.ref}</button></div>
+              <div className="flex h-[43px] items-center justify-between border-b border-border"><span className="text-foreground/50">العملية</span><span className="font-extrabold">تحويل مشترك</span></div>
+              <div className="flex h-[44px] items-center justify-between border-b border-border"><span className="text-foreground/50">تاريخ العملية</span><span className="font-extrabold" dir="ltr">{receipt.date}</span></div>
+              <div className="flex h-[69px] items-start justify-between border-b border-border pt-[12px]"><span className="text-foreground/50">المستفيد</span><span className="text-end font-extrabold leading-[26px]">{receipt.name}<br />{receipt.phone}</span></div>
+              <div className="flex h-[68px] items-start justify-between border-b border-border pt-[12px]"><span className="text-foreground/50">المودع</span><span className="text-end font-extrabold leading-[26px]"><OwnerName /><br /><OwnerPhone /></span></div>
             </div>
             <div className="mt-[22px] flex justify-center gap-[26px] text-[13px] font-bold">
               {[
