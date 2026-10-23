@@ -130,8 +130,8 @@ function Login() {
         </p>
 
         {sheet && (
-          <button type="button" onClick={finger} aria-label="الدخول بالبصمة" style={{ ...box(362, 1381, 528, 1530), zIndex: 30 }} className="overflow-hidden rounded-full bg-card transition active:scale-90">
-            <img src={fpBig} alt="" className="h-full w-full rounded-full mix-blend-multiply" />
+          <button type="button" onClick={finger} aria-label="الدخول بالبصمة" style={{ ...box(362, 1381, 528, 1530), zIndex: 30 }} className="rounded-full transition active:scale-90">
+            <img src={fpBig} alt="" className="h-full w-full" style={{ clipPath: "circle(47% at 50% 50%)" }} />
           </button>
         )}
 
@@ -147,7 +147,7 @@ function Login() {
           <div style={{ ...box(56, 825, 832, 1289), zIndex: 20 }} className="rounded-[26px] bg-login-sheet shadow-[0_6px_30px_rgba(0,0,0,0.15)]">
             <div style={{ position: "absolute", left: 0, right: 0, top: 68 / S }} className="flex items-center justify-center gap-[6px]">
               <span className="text-[13px] leading-none text-foreground/70">جيب</span>
-              <img src={mlogo} alt="" style={{ width: 80 / S, height: 36 / S, objectFit: "cover", objectPosition: "left" , clipPath: "inset(0 0 0 0)" }} />
+              <img src={mlogo} alt="" style={{ width: 40 / S, height: 36 / S, objectFit: "cover", objectPosition: "left" }} />
             </div>
             <div style={{ position: "absolute", left: 0, right: 0, top: 150 / S }} className="text-center text-[18px] font-bold leading-none">محفظة جيب</div>
             <div style={{ position: "absolute", left: 0, right: 0, top: 206 / S }} className="text-center text-[17px] leading-none text-foreground/80" dir="ltr">{phone}</div>
