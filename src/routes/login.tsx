@@ -96,7 +96,7 @@ function Login() {
         </button>
 
         <div style={box(41, 730, 175, 864)} className="rounded-[8px] border border-foreground/10 bg-transparent">
-          <img src={ph} alt="" style={{ position: "absolute", left: 30 / S, top: 30 / S, width: 72 / S, height: 72 / S }} />
+          <img src={ph} alt="" style={{ position: "absolute", left: 30 / S, top: 30 / S, width: 72 / S, height: 72 / S, filter: "grayscale(1)" }} />
         </div>
         <div style={box(195, 730, 836, 864)} className="rounded-[8px] border border-foreground/10 bg-transparent">
           <span style={{ position: "absolute", right: 35 / S, top: -58 / S }} className="whitespace-nowrap text-[17px] leading-none text-muted-foreground">رقم الموبايل</span>
