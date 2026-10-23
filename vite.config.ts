@@ -27,7 +27,7 @@ export default defineConfig({
         devOptions: { enabled: false },
         workbox: {
           globDirectory: "dist/client",
-          globPatterns: ["**/*.{js,css,webp,png,svg,woff2,ico,mp3}"],
+          globPatterns: ["**/*.{js,css,webp,png,svg,woff2,otf,ico,mp3}"],
           maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
           navigateFallback: null,
           cleanupOutdatedCaches: true,
