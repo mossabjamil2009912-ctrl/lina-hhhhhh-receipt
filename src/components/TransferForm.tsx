@@ -128,7 +128,7 @@ export function TransferForm() {
   };
   const sugg = phone && !who ? customers.filter((c) => c.phone.startsWith(phone)) : [];
 
-  const input = "h-full w-full bg-transparent px-[16px] text-[15px] outline-none placeholder:text-muted-foreground";
+  const input = "h-full w-full bg-transparent px-[16px] text-[16.5px] outline-none placeholder:text-muted-foreground";
   const sq = "flex h-[59px] w-[59px] shrink-0 items-center justify-center rounded-[12px] border border-border bg-card active:scale-90";
 
   return (
@@ -140,7 +140,7 @@ export function TransferForm() {
       <div className="flex gap-[5px]">
         <div className="relative flex-1">
           <Field label="حساب المحفظة" value focus={open}>
-            <button onClick={() => setOpen(!open)} className="flex h-full w-full items-center justify-between px-[16px] text-[15px] text-muted-foreground">
+            <button onClick={() => setOpen(!open)} className="flex h-full w-full items-center justify-between px-[16px] text-[16.5px] text-muted-foreground">
               <span>{curName[cur]} | {show ? fmt(balances[cur]) : "#####"}</span>
               <span className={`border-x-[6px] border-x-transparent ${open ? "border-b-[7px] border-b-foreground" : "border-t-[7px] border-t-foreground"}`} />
             </button>
@@ -154,7 +154,7 @@ export function TransferForm() {
           )}
         </div>
         <button aria-label="إظهار الرصيد" onClick={() => setShow(!show)} className={sq}>
-          {show ? <Eye className="h-6 w-6 text-primary" strokeWidth={2.5} /> : <EyeOff className="h-6 w-6 fill-primary text-primary" strokeWidth={2.5} />}
+          {show ? <Eye className="h-6 w-6 text-primary" strokeWidth={2.5} /> : <EyeOff className="h-6 w-6 text-primary" strokeWidth={2.5} />}
         </button>
       </div>
 
@@ -176,10 +176,10 @@ export function TransferForm() {
         </div>
         <button aria-label="المفضلة" className={sq}><Heart className="h-[26px] w-[26px] text-primary" strokeWidth={2.3} /></button>
         <button aria-label="مسح" className={sq}>
-          <svg viewBox="0 0 24 24" className="h-[26px] w-[26px]" fill="none" strokeWidth="2"><path d="M3 7V4h3M18 4h3v3M21 17v3h-3M6 20H3v-3" className="stroke-foreground" /><path d="M6 10h12M6 12h12M6 14h12" className="stroke-primary" /></svg>
+          <svg viewBox="0 0 24 24" className="h-[26px] w-[26px]" fill="none" strokeWidth="2"><path d="M3 7V4h3M18 4h3v3M21 17v3h-3M6 20H3v-3" className="stroke-foreground" /><path d="M6 9h12M6 12h12M6 15h12" strokeWidth="1.3" className="stroke-primary" /></svg>
         </button>
       </div>
-      <p className="mt-[8px] px-[4px] text-[13px]">يمكنك استخدام الرقم البديل أو رقم الموبايل للتحويل إلى مشترك</p>
+      <p className="mt-[8px] px-[4px] text-[15.5px] text-foreground">يمكنك استخدام الرقم البديل أو رقم الموبايل للتحويل إلى مشترك</p>
 
       <div className="mt-[14px]">
         <Field label="المبلغ" value={!!amount || focus === "amount"} focus={focus === "amount" || step === "review" || step === "pin"}>
@@ -198,9 +198,9 @@ export function TransferForm() {
       {(step === "review" || step === "pin") && who && (
         <Sheet onClose={() => setStep("form")}>
           <div className="px-[12px] pb-[24px] pt-[55px]">
-            <h2 className="text-center text-[19px] font-extrabold leading-[24px]">بيانات الحركة</h2>
+            <h2 className="text-center text-[19px] font-bold leading-[24px]">بيانات الحركة</h2>
             <div className="mt-[11px] flex h-[60px] items-center justify-center gap-[34px] rounded-[12px] bg-foreground/15">
-              <span className="text-[22px] font-extrabold">{amount}</span>
+              <span className="text-[25px] font-bold">{amount}</span>
               <span className="text-[16px]">{curName[cur]}</span>
             </div>
             <div className="mt-[17px] flex h-[20px] items-center justify-between px-[1px] text-[15px]"><span className="text-muted-foreground">العملية</span><span className="font-semibold">تحويل إلى مشترك</span></div>
@@ -219,7 +219,7 @@ export function TransferForm() {
       {step === "pin" && (
         <Sheet top={250} onClose={() => setStep("review")}>
           <div className="px-[17px] pb-[25px] pt-[56px]">
-            <h2 className="text-center text-[19px] font-extrabold leading-[24px]">تأكيد العملية</h2>
+            <h2 className="text-center text-[19px] font-bold leading-[24px]">تأكيد العملية</h2>
             <button aria-label="البصمة" onClick={() => confirm(true)} className="mx-auto mt-[30px] block active:scale-90"><img src={fpImg} alt="" className="h-[60px] w-[60px]" /></button>
             <p className="mt-[28px] h-[22px] text-center text-[16px] leading-[22px]">أو قم بإدخال رمز التأكيد أو كلمة المرور</p>
             <div className={`mt-[12px] flex h-[59px] items-center rounded-[12px] ${pinErr ? "border-2 border-primary" : "border border-border"}`}>
@@ -242,20 +242,20 @@ export function TransferForm() {
         <Sheet onClose={reset} fit={650}>
           <div ref={rcpt} className="relative rounded-[22px] bg-card pb-[25px] pt-[59px]">
             <JaibReceiptLogo />
-            <h2 className="mt-[12px] text-center text-[19px] font-extrabold leading-[22px]">ايصال العملية</h2>
+            <h2 className="mt-[12px] text-center text-[19px] font-bold leading-[22px]">ايصال العملية</h2>
             <div className="mx-[20px] mt-[11px] flex h-[53px] items-center justify-center gap-[14px] rounded-[12px] bg-foreground/15">
-              <span className="text-[20px] font-extrabold text-primary">{receipt.amount}</span>
+              <span className="text-[23px] font-bold text-primary">{receipt.amount}</span>
               <span className="text-[16px]">{curName[receipt.cur]}</span>
             </div>
-            <div className="mx-[28px] mt-[5px] text-[14px]">
+            <div className="mx-[28px] mt-[5px] text-[15.5px]">
               <div className="flex h-[42px] items-center justify-between border-b border-border"><span className="text-foreground/50">رقم مرجع العملية</span>
-                <button onClick={() => navigator.clipboard?.writeText(receipt.ref)} className="flex items-center gap-[6px] font-extrabold active:scale-95"><Copy className="h-[19px] w-[19px]" strokeWidth={2.4} />{receipt.ref}</button></div>
-              <div className="flex h-[43px] items-center justify-between border-b border-border"><span className="text-foreground/50">العملية</span><span className="font-extrabold">تحويل مشترك</span></div>
-              <div className="flex h-[44px] items-center justify-between border-b border-border"><span className="text-foreground/50">تاريخ العملية</span><span className="font-extrabold" dir="ltr">{receipt.date}</span></div>
-              <div className="flex h-[69px] items-start justify-between border-b border-border pt-[12px]"><span className="text-foreground/50">المستفيد</span><span className="text-end font-extrabold leading-[26px]">{receipt.name}<br />{receipt.phone}</span></div>
-              <div className="flex h-[68px] items-start justify-between border-b border-border pt-[12px]"><span className="text-foreground/50">المودع</span><span className="text-end font-extrabold leading-[26px]"><OwnerName /><br /><OwnerPhone /></span></div>
+                <button onClick={() => navigator.clipboard?.writeText(receipt.ref)} className="flex items-center gap-[6px] font-bold active:scale-95"><Copy className="h-[19px] w-[19px]" strokeWidth={2.4} />{receipt.ref}</button></div>
+              <div className="flex h-[43px] items-center justify-between border-b border-border"><span className="text-foreground/50">العملية</span><span className="font-bold">تحويل مشترك</span></div>
+              <div className="flex h-[44px] items-center justify-between border-b border-border"><span className="text-foreground/50">تاريخ العملية</span><span className="font-bold" dir="ltr">{receipt.date}</span></div>
+              <div className="flex h-[69px] items-start justify-between border-b border-border pt-[12px]"><span className="text-foreground/50">المستفيد</span><span className="text-end font-bold leading-[26px]">{receipt.name}<br />{receipt.phone}</span></div>
+              <div className="flex h-[68px] items-start justify-between border-b border-border pt-[12px]"><span className="text-foreground/50">المودع</span><span className="text-end font-bold leading-[26px]"><OwnerName /><br /><OwnerPhone /></span></div>
             </div>
-            <div className="mt-[22px] flex justify-center gap-[26px] text-[13px] font-bold">
+            <div className="mt-[22px] flex justify-center gap-[26px] text-[14.5px] font-bold">
               {[
                 { l: "حفظ", i: <Download className="h-[24px] w-[24px] text-primary" />, f: save },
                 { l: "اضافة للمفضلة", i: <Heart className={`h-[24px] w-[24px] text-primary ${fav ? "fill-primary" : ""}`} />, f: () => setFav(!fav) },
