@@ -249,7 +249,7 @@ export function TransferForm() {
             </div>
             <div className="mx-[28px] mt-[5px] text-[14px]">
               <div className="flex h-[42px] items-center justify-between border-b border-border"><span className="text-foreground/50">رقم مرجع العملية</span>
-                <button onClick={() => navigator.clipboard?.writeText(receipt.ref)} className="flex items-center gap-[6px] font-extrabold active:scale-95"><Copy className="h-[19px] w-[19px]" strokeWidth={2.4" />{receipt.ref}</button></div>
+                <button onClick={() => navigator.clipboard?.writeText(receipt.ref)} className="flex items-center gap-[6px] font-extrabold active:scale-95"><Copy className="h-[19px] w-[19px]" strokeWidth={2.4} />{receipt.ref}</button></div>
               <div className="flex h-[43px] items-center justify-between border-b border-border"><span className="text-foreground/50">العملية</span><span className="font-extrabold">تحويل مشترك</span></div>
               <div className="flex h-[44px] items-center justify-between border-b border-border"><span className="text-foreground/50">تاريخ العملية</span><span className="font-extrabold" dir="ltr">{receipt.date}</span></div>
               <div className="flex h-[69px] items-start justify-between border-b border-border pt-[12px]"><span className="text-foreground/50">المستفيد</span><span className="text-end font-extrabold leading-[26px]">{receipt.name}<br />{receipt.phone}</span></div>
