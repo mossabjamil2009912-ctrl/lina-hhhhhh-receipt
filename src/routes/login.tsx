@@ -111,7 +111,7 @@ function Login() {
           {bio ? null : (
             <input type="password" value={pw} onChange={(e) => { setPw(e.target.value); setErr(false); }} inputMode="numeric" autoComplete="current-password" aria-label="كلمة المرور" dir="ltr" className="h-full w-full bg-transparent pl-[48px] pr-[20px] text-right text-[19px] outline-none" />
           )}
-          {!bio && !pw && <span style={{ position: "absolute", right: 38 / S, top: 0, bottom: 0 }} className="pointer-events-none flex items-center text-[18px] text-muted-foreground">كلمة المرور</span>}
+          {!pw && <span style={{ position: "absolute", right: 38 / S, top: 0, bottom: 0 }} className="pointer-events-none flex items-center text-[18px] text-muted-foreground">كلمة المرور</span>}
           <button type="button" onClick={finger} aria-label="البصمة" style={{ position: "absolute", left: 28 / S, top: 36 / S, width: 68 / S, height: 68 / S }}><img src={fp} alt="" className="h-full w-full contrast-[1.6]" /></button>
         </div>
         <p style={{ position: "absolute", right: 40 / S, top: 1052 / S }} className={`text-[16px] leading-none ${err ? "text-primary" : "text-foreground/70"}`}>{err ? "كلمة المرور غير صحيحة" : "طول كلمة المرور يجب أن يكون 4 أرقام أو أكثر"}</p>
