@@ -81,7 +81,7 @@ function Login() {
   return (
     <div className="flex h-[100dvh] w-full justify-center overflow-hidden bg-card">
       <form onSubmit={submit} style={{ zoom, width: W, height: H }} className="relative shrink-0 overflow-hidden bg-card [&_img]:mix-blend-multiply">
-        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[150px] opacity-[0.035] [mask-image:linear-gradient(to_bottom,black,transparent)]" style={{ backgroundImage: `url(${mlogo})`, backgroundSize: "44px auto", backgroundRepeat: "repeat" }} />
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[150px] [mask-image:linear-gradient(to_bottom,black,transparent)]" style={{ backgroundImage: `url(${mlogo})`, backgroundSize: "34px auto", backgroundRepeat: "space", opacity: 0.03 }} />
         <img src={logo} alt="جيب" style={box(318, 112, 556, 216)} />
         <h1 style={{ position: "absolute", right: 60 / S, top: 330 / S }} className="text-[27px] font-bold leading-none">مرحبًا بعودتك</h1>
         <p style={{ position: "absolute", right: 60 / S, top: 400 / S }} className="text-[22px] leading-none text-foreground/80">قم بتسجيل الدخول</p>
@@ -105,7 +105,7 @@ function Login() {
 
         {bio && <div className="fixed inset-0 z-40 bg-foreground/30" />}
         {bio && (
-          <div style={{ ...box(37, 893, 840, 1033), zIndex: 50 }} className="pointer-events-none flex items-center justify-center"><div className="scale-[0.7] drop-shadow-[0_1px_3px_rgba(0,0,0,0.25)]"><JaibLoader /></div></div>
+          <div style={{ ...box(37, 893, 840, 1033), zIndex: 50 }} className="pointer-events-none flex items-center justify-center"><div className="scale-[1.8] drop-shadow-[0_1px_3px_rgba(0,0,0,0.25)]"><JaibLoader /></div></div>
         )}
         <div style={box(37, 893, 840, 1033)} className={`rounded-[8px] border bg-transparent ${err ? "border-primary" : "border-foreground/25"}`}>
           {bio ? null : (
@@ -130,7 +130,7 @@ function Login() {
         </p>
 
         {sheet && (
-          <button type="button" onClick={finger} aria-label="الدخول بالبصمة" style={{ ...box(362, 1381, 528, 1530), zIndex: 30 }} className="rounded-full transition active:scale-90">
+          <button type="button" onClick={finger} aria-label="الدخول بالبصمة" style={{ ...box(362, 1381, 528, 1530), zIndex: 30 }} className="rounded-full bg-card transition active:scale-90">
             <img src={fpBig} alt="" className="h-full w-full" style={{ clipPath: "circle(47% at 50% 50%)" }} />
           </button>
         )}
@@ -147,7 +147,7 @@ function Login() {
           <div style={{ ...box(56, 825, 832, 1289), zIndex: 20 }} className="rounded-[26px] bg-login-sheet shadow-[0_6px_30px_rgba(0,0,0,0.15)]">
             <div style={{ position: "absolute", left: 0, right: 0, top: 68 / S }} className="flex items-center justify-center gap-[6px]">
               <span className="text-[13px] leading-none text-foreground/70">جيب</span>
-              <img src={mlogo} alt="" style={{ width: 40 / S, height: 36 / S, objectFit: "cover", objectPosition: "left" }} />
+              <img src={mlogo} alt="" style={{ width: 36 / S, height: 36 / S, objectFit: "cover", objectPosition: "0% 50%" }} />
             </div>
             <div style={{ position: "absolute", left: 0, right: 0, top: 150 / S }} className="text-center text-[18px] font-bold leading-none">محفظة جيب</div>
             <div style={{ position: "absolute", left: 0, right: 0, top: 206 / S }} className="text-center text-[17px] leading-none text-foreground/80" dir="ltr">{phone}</div>
