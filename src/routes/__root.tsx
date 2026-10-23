@@ -172,6 +172,7 @@ function RootComponent() {
       }
     };
     document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
   }, []);
   useEffect(() => {
     // Warm the cache so every screen's icons appear instantly.
