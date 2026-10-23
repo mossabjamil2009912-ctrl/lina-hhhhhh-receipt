@@ -140,7 +140,7 @@ function Login() {
           </button>
         ))}
 
-        {sheet && <div onClick={() => setSheet(false)} className="fixed inset-0 z-10 bg-foreground/10" />}
+        {sheet && <div onClick={() => setSheet(false)} className="fixed inset-0 z-10 bg-foreground/30" />}
         {sheet && (
           <div style={{ ...box(56, 825, 832, 1289), zIndex: 20 }} className="rounded-[26px] bg-login-sheet shadow-[0_6px_30px_rgba(0,0,0,0.15)]">
             <div style={{ position: "absolute", left: 0, right: 0, top: 68 / S }} className="flex items-center justify-center gap-[6px]">
