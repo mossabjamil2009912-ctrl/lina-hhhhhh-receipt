@@ -13,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { setupPwa, keepDataPersistent } from "../lib/pwa";
+import { UpdatePrompt } from "../components/UpdatePrompt";
 
 // After a new deploy, old chunk hashes 404 → reload once to fetch the fresh build.
 if (typeof window !== "undefined") {
@@ -172,6 +173,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <UpdatePrompt />
     </QueryClientProvider>
   );
 }
