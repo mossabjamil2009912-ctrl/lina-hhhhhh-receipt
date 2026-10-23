@@ -162,6 +162,16 @@ function RootComponent() {
   useEffect(() => {
     void setupPwa();
     void keepDataPersistent();
+    localStorage.removeItem("jaib-auth");
+    let hiddenAt = 0;
+    const onVis = () => {
+      if (document.hidden) hiddenAt = Date.now();
+      else if (hiddenAt && Date.now() - hiddenAt > 30000 && sessionStorage.getItem("jaib-auth")) {
+        sessionStorage.removeItem("jaib-auth");
+        location.href = "/login";
+      }
+    };
+    document.addEventListener("visibilitychange", onVis);
   }, []);
   useEffect(() => {
     // Warm the cache so every screen's icons appear instantly.
