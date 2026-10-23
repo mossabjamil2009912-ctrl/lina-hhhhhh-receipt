@@ -30,7 +30,7 @@ function Field({ label, value, focus, children }: { label: string; value: boolea
 
 function Sheet({ children, onClose, top, dim = true, fit }: { children: ReactNode; onClose: () => void; top?: number; dim?: boolean; fit?: number }) {
   return (
-    <div className={`fixed inset-0 z-40 flex justify-center px-[12px] ${top === undefined ? "items-end pb-[28px]" : "items-start"} ${dim ? (top === undefined ? "bg-foreground/60" : "bg-foreground/55") : ""} jaib-fade`} style={top === undefined ? undefined : { paddingTop: top }}>
+    <div className={`fixed inset-0 z-40 flex justify-center px-[12px] ${top === undefined ? "items-end pb-[28px]" : "items-start"} ${dim ? (top === undefined ? "bg-foreground/60" : "bg-foreground/65") : ""} jaib-fade`} style={top === undefined ? undefined : { paddingTop: top }}>
       <div className="jaib-up relative w-full max-w-[366px] rounded-[22px] bg-card" style={fit ? (() => { const z = Math.min(1, (window.innerHeight - 150) / fit); return { zoom: z, maxWidth: "none", width: `calc(min(100vw - 24px, 366px) / ${z})` }; })() : undefined}>
         <button aria-label="إغلاق" onClick={onClose} className="absolute left-[24px] top-[20px] z-10 active:scale-90"><X className="h-[22px] w-[22px]" strokeWidth={2.5} /></button>
         {children}
