@@ -7,7 +7,6 @@ const okTone = { url: toneUrl };
 import { Copy, Download, Eye, EyeOff, Heart, Share2, X } from "lucide-react";
 import top from "@/assets/jaib/sub_top.webp";
 import ct from "@/assets/jaib/sub_ct.webp";
-import fpImg from "@/assets/jaib/sub_fp.webp";
 import logo from "@/assets/jaib/sub_logo.webp";
 import { useOwner } from "@/lib/owner";
 function OwnerName() { return <>{useOwner().name}</>; }
