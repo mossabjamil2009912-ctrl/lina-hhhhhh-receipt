@@ -81,7 +81,7 @@ function Login() {
   return (
     <div className="flex h-[100dvh] w-full justify-center overflow-hidden bg-card">
       <form onSubmit={submit} style={{ zoom, width: W, height: H }} className="relative shrink-0 overflow-hidden bg-card [&_img]:mix-blend-multiply">
-        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[200px] opacity-[0.045] [mask-image:linear-gradient(to_bottom,black,transparent)]" style={{ backgroundImage: `url(${mlogo})`, backgroundSize: "44px auto", backgroundRepeat: "repeat" }} />
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[150px] opacity-[0.035] [mask-image:linear-gradient(to_bottom,black,transparent)]" style={{ backgroundImage: `url(${mlogo})`, backgroundSize: "44px auto", backgroundRepeat: "repeat" }} />
         <img src={logo} alt="جيب" style={box(318, 112, 556, 216)} />
         <h1 style={{ position: "absolute", right: 60 / S, top: 330 / S }} className="text-[22px] font-bold leading-none">مرحبًا بعودتك</h1>
         <p style={{ position: "absolute", right: 60 / S, top: 400 / S }} className="text-[18px] leading-none text-foreground/80">قم بتسجيل الدخول</p>
@@ -119,16 +119,16 @@ function Login() {
           {type === "client" ? "تسجيل الدخول كـ عميل" : "تسجيل الدخول كـ نقطة مبيعات"}
         </button>
 
-        <label style={{ position: "absolute", right: 38 / S, top: 1330 / S }} className="flex items-center gap-[8px] text-[17px] font-bold leading-none">
+        <label style={{ position: "absolute", right: 38 / S, top: 1335 / S }} className="flex items-center gap-[8px] text-[17px] font-bold leading-none">
           <input type="checkbox" checked={offline} onChange={(e) => setOffline(e.target.checked)} className="h-[20px] w-[20px] rounded-[5px] accent-primary" />
           دخول بدون نت
         </label>
-        <p style={{ position: "absolute", left: 33 / S, top: 1345 / S }} className="text-[13.5px] leading-none text-muted-foreground">
+        <p style={{ position: "absolute", left: 33 / S, top: 1340 / S }} className="text-[13.5px] leading-none text-muted-foreground">
           لا تمتلك حساب؟ <button type="button" className="font-bold text-primary">إنشاء حساب</button>
         </p>
 
         {sheet && (
-          <button type="button" onClick={finger} aria-label="الدخول بالبصمة" style={{ ...box(378, 1381, 544, 1530), zIndex: 30 }} className="rounded-full bg-card transition active:scale-90">
+          <button type="button" onClick={finger} aria-label="الدخول بالبصمة" style={{ ...box(362, 1381, 528, 1530), zIndex: 30 }} className="rounded-full bg-card transition active:scale-90">
             <img src={fpBig} alt="" className="h-full w-full" />
           </button>
         )}
