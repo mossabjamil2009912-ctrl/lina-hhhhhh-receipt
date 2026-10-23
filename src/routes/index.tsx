@@ -30,7 +30,7 @@ import i8 from "@/assets/jaib/i8.webp";
 export const Route = createFileRoute("/")({
   ssr: false,
   beforeLoad: () => {
-    if (typeof window !== "undefined" && localStorage.getItem("jaib-auth") !== "1") throw redirect({ to: "/login" });
+    if (typeof window !== "undefined" && sessionStorage.getItem("jaib-auth") !== "1") throw redirect({ to: "/login" });
   },
   head: () => ({
     meta: [
