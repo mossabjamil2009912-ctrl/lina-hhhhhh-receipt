@@ -103,7 +103,8 @@ function Login() {
           <input value={phone} onChange={(e) => setPhone(e.target.value)} inputMode="numeric" dir="ltr" aria-label="رقم الموبايل" className="h-full w-full bg-transparent px-[14px] text-right text-[19px] outline-none" />
         </div>
 
-        <div style={box(37, 893, 840, 1033)} className={`rounded-[8px] border bg-transparent ${err ? "border-primary" : "border-foreground/25"}`}>
+        {bio && <div className="fixed inset-0 z-40 bg-foreground/30" />}
+        <div style={{ ...box(37, 893, 840, 1033), ...(bio ? { zIndex: 50 } : {}) }} className={`rounded-[8px] border bg-transparent ${err ? "border-primary" : "border-foreground/25"}`}>
           {bio ? (
             <div className="absolute inset-0 flex items-center justify-center"><div className="scale-[0.7] drop-shadow-[0_1px_3px_rgba(0,0,0,0.25)]"><JaibLoader /></div></div>
           ) : (
