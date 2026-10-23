@@ -153,8 +153,8 @@ function Index() {
     <div className="flex h-[100dvh] w-full justify-center overflow-hidden bg-background">
       <div style={{ zoom, width: W, height: vh }} className="relative shrink-0 overflow-hidden bg-background">
        <div style={{ position: "absolute", left: 0, top: -TOP / S, width: W, height: vh + TOP / S }}>
-        <h1 style={{ position: "absolute", right: 29 / S, top: 80 / S }} className="text-[21px] font-bold leading-none">{greet}</h1>
-        <p style={{ position: "absolute", right: 29 / S, top: 148 / S }} className="text-[18px] leading-none"><OwnerFirst /></p>
+        <h1 style={{ position: "absolute", right: 29 / S, top: 80 / S }} className="text-[25px] font-bold leading-none">{greet}</h1>
+        <p style={{ position: "absolute", right: 29 / S, top: 148 / S }} className="text-[20px] leading-none"><OwnerFirst /></p>
         <button style={box(135, 90, 235, 182)} className="transition-transform active:scale-90"><img src={bot} alt="المساعد" className="h-full w-full" /></button>
         <button style={box(27, 90, 127, 182)} className="transition-transform active:scale-90"><img src={bell} alt="الإشعارات" className="h-full w-full" /></button>
         <div style={{ position: "absolute", left: 0, right: 0, top: 200 / S, bottom: 0, overflowY: "auto", overflowX: "hidden", touchAction: "pan-y", WebkitOverflowScrolling: "touch", overscrollBehavior: "contain" }} className="no-scrollbar">
@@ -172,12 +172,12 @@ function Index() {
               return (
                 <Link key={label} to="/service/$id" params={{ id }} style={box(x1, y1, x2, y2)} className="rounded-[14px] bg-card transition-transform duration-150 active:scale-95">
                   <img src={img} alt="" style={{ position: "absolute", left: (cx - 48 - x1) / S, top: 18 / S, width: 96 / S, height: 96 / S }} />
-                  <span style={{ position: "absolute", left: 0, right: 0, top: 120 / S }} className="text-center text-[16.5px] leading-none">{label}</span>
+                  <span style={{ position: "absolute", left: 0, right: 0, top: 120 / S }} className="text-center text-[17.5px] leading-none">{label}</span>
                 </Link>
               );
             })}
 
-            <h2 style={{ position: "absolute", right: 29 / S, top: 1660 / S }} className="text-[22px] font-bold leading-none">العمليات</h2>
+            <h2 style={{ position: "absolute", right: 29 / S, top: 1660 / S }} className="text-[24px] font-bold leading-none">العمليات</h2>
             <Ops />
           </div>
         </div>

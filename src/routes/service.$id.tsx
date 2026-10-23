@@ -151,7 +151,7 @@ function ServicePage() {
       <div className={`relative mx-auto max-w-[430px] ${id === "reports" ? "pb-[110px]" : ""}`}>
         <header className="flex items-center gap-3 px-[14px] pb-[18px] pt-[24px]">
           <Link to={g?.parent === "ent" ? "/service/$id" : g || parentOf[id] ? "/service/$id" : "/"} params={{ id: g ? (g.parent === "ent" ? "entertainment" : g.parent) : parentOf[id] ?? "transfers" }} aria-label="رجوع" className="p-1 active:scale-90"><ChevronRight className="h-[26px] w-[26px]" strokeWidth={2.2} /></Link>
-          <h1 className="text-[17px] font-bold">{id === "reports" ? "أخرى" : g?.label ?? serviceNames[id] ?? "خدمة"}</h1>
+          <h1 className="text-[19.5px] font-bold">{id === "reports" ? "أخرى" : g?.label ?? serviceNames[id] ?? "خدمة"}</h1>
           {menu?.refresh && (
             <button onClick={() => setSpin(spin + 1)} className="ms-auto flex h-[28px] items-center gap-[6px] rounded-[6px] bg-card px-[12px] text-[12px] active:scale-95">
               <RefreshCw className="h-[22px] w-[22px] text-primary transition-transform duration-700" style={{ transform: `rotate(${spin * 360}deg)` }} />

@@ -179,7 +179,7 @@ export function TransferForm() {
           <svg viewBox="0 0 24 24" className="h-[26px] w-[26px]" fill="none" strokeWidth="2"><path d="M3 7V4h3M18 4h3v3M21 17v3h-3M6 20H3v-3" className="stroke-foreground" /><path d="M6 9h12M6 12h12M6 15h12" strokeWidth="1.3" className="stroke-primary" /></svg>
         </button>
       </div>
-      <p className="mt-[8px] px-[4px] text-[14.5px] text-foreground">يمكنك استخدام الرقم البديل أو رقم الموبايل للتحويل إلى مشترك</p>
+      <p className="mt-[8px] px-[4px] text-[15.5px] text-foreground">يمكنك استخدام الرقم البديل أو رقم الموبايل للتحويل إلى مشترك</p>
 
       <div className="mt-[14px]">
         <Field label="المبلغ" value={!!amount || focus === "amount"} focus={focus === "amount" || step === "review" || step === "pin"}>
