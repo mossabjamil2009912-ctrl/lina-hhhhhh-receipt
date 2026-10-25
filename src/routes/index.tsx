@@ -184,7 +184,7 @@ function Index() {
         </div>
 
        </div>
-       <div style={{ position: "absolute", left: 0, bottom: 0, width: W, height: (1920 - 1686) / S, overflow: "hidden" }}>
+       <div className="bg-card" style={{ position: "absolute", left: 0, bottom: 0, width: W, height: (1920 - 1686) / S, overflow: "hidden", borderTopLeftRadius: 24, borderTopRightRadius: 24 }}>
         <div style={{ position: "absolute", left: 0, top: -1686 / S, width: W, height: H }}>
         <img src={nav} alt="شريط التنقل" style={box(0, 1686, 864, 1890)} />
         <button aria-label="الرئيسية" style={box(691, 1730, 864, 1890)} className="active:scale-90" />
