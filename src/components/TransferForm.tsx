@@ -200,7 +200,7 @@ export function TransferForm() {
             <h2 className="text-center text-[21px] font-bold leading-[24px]">بيانات الحركة</h2>
             <div className="mt-[11px] flex h-[60px] items-center justify-center gap-[34px] rounded-[12px] bg-foreground/15">
               <span className="text-[25px] font-bold">{amount}</span>
-              <span className="text-[16px]">{curName[cur]}</span>
+              <span className="text-[19px] text-foreground/80">{curName[cur]}</span>
             </div>
             <div className="mt-[17px] flex h-[20px] items-center justify-between px-[1px] text-[16.5px]"><span className="text-muted-foreground">العملية</span><span className="font-semibold">تحويل إلى مشترك</span></div>
             <div className="mt-[11px] flex h-[58px] flex-col justify-center gap-[6px] rounded-[12px] border border-foreground text-center text-[16.5px] font-bold leading-[20px]">
@@ -244,7 +244,7 @@ export function TransferForm() {
             <h2 className="mt-[12px] text-center text-[19px] font-bold leading-[22px]">ايصال العملية</h2>
             <div className="mx-[20px] mt-[11px] flex h-[53px] items-center justify-center gap-[14px] rounded-[12px] bg-foreground/15">
               <span className="text-[23px] font-bold text-primary">{receipt.amount}</span>
-              <span className="text-[16px]">{curName[receipt.cur]}</span>
+              <span className="text-[19px] text-foreground/80">{curName[receipt.cur]}</span>
             </div>
             <div className="mx-[28px] mt-[5px] text-[15.5px]">
               <div className="flex h-[42px] items-center justify-between border-b border-border"><span className="text-foreground/50">رقم مرجع العملية</span>
